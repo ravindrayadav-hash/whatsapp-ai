@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "79918099cf98bd206ae8898702c18317_document_page",
+      "label": "Handwritten or Printed Document Page",
+      "file_type": "image",
+      "source_file": "uploads/images/79918099cf98bd206ae8898702c18317.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A low-resolution photograph of what appears to be a handwritten or printed document, form, or notebook page. Text content is not legible due to image quality.",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.2
+    },
+    {
+      "id": "649345ec555e2b882643011be7086b6c_desktop_ui_dialog",
+      "label": "Desktop Software Configuration Dialog",
+      "file_type": "image",
+      "source_file": "uploads/images/649345ec555e2b882643011be7086b6c.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A screenshot of a desktop application dialog or settings window containing form fields, input boxes, and action buttons. Likely a configuration or data-entry dialog in a desktop software environment.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.7
+    },
+    {
+      "id": "083dea231dc97840afee2a832d16b063_mobile_chat_ui",
+      "label": "Mobile Chat Messaging Interface",
+      "file_type": "image",
+      "source_file": "uploads/images/083dea231dc97840afee2a832d16b063.jpg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "description": "A mobile screenshot showing a chat or messaging interface with message bubbles and a text input area, consistent with WhatsApp or a similar messaging application.",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75
+    }
+  ],
+  "edges": [
+    {
+      "source": "649345ec555e2b882643011be7086b6c_desktop_ui_dialog",
+      "target": "083dea231dc97840afee2a832d16b063_mobile_chat_ui",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.65,
+      "source_file": "uploads/images/649345ec555e2b882643011be7086b6c.jpg",
+      "source_location": null,
+      "weight": 0.65
+    },
+    {
+      "source": "79918099cf98bd206ae8898702c18317_document_page",
+      "target": "649345ec555e2b882643011be7086b6c_desktop_ui_dialog",
+      "relation": "semantically_similar_to",
+      "confidence": "AMBIGUOUS",
+      "confidence_score": 0.15,
+      "source_file": "uploads/images/79918099cf98bd206ae8898702c18317.jpg",
+      "source_location": null,
+      "weight": 0.15
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

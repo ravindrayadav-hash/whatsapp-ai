@@ -1,0 +1,23 @@
+{
+  "name": "whatsapp-ai-backend",
+  "version": "1.0.0",
+  "description": "WhatsApp AI backend with Express, TypeORM, MySQL",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^8.3.2",
+    "mysql2": "^3.9.7",
+    "node-cron": "^3.0.3",
+    "playwright": "^1.44.0",
+    "reflect-metadata": "^0.2.2",
+    "sharp": "^0.34.5",
+    "typeorm": "^0.3.20"
+  }
+}

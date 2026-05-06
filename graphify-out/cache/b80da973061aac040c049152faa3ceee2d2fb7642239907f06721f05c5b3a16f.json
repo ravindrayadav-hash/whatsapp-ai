@@ -1,0 +1,1 @@
+{"nodes": [{"id": "src_entities_message_js", "label": "Message.js", "file_type": "code", "source_file": "src/entities/Message.js", "source_location": "L1"}], "edges": [{"source": "src_entities_message_js", "target": "typeorm", "relation": "imports_from", "confidence": "EXTRACTED", "source_file": "src/entities/Message.js", "source_location": "L1", "weight": 1.0}], "raw_calls": []}

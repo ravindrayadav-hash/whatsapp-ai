@@ -1,0 +1,5868 @@
+{
+  "nodes": [
+    {
+      "id": "server_js",
+      "label": "server.js",
+      "file_type": "code",
+      "source_file": "server.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_dedupe_messages_js",
+      "label": "dedupe-messages.js",
+      "file_type": "code",
+      "source_file": "scripts/dedupe-messages.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_reset_data_js",
+      "label": "reset-data.js",
+      "file_type": "code",
+      "source_file": "scripts/reset-data.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_list_models_js",
+      "label": "list-models.js",
+      "file_type": "code",
+      "source_file": "scripts/list-models.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_vite_config_js",
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "client/vite.config.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_main_jsx",
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "client/src/main.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_app_jsx",
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "app_app",
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L10"
+    },
+    {
+      "id": "client_src_components_itemlist_jsx",
+      "label": "ItemList.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/ItemList.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "itemlist_itemlist",
+      "label": "ItemList()",
+      "file_type": "code",
+      "source_file": "client/src/components/ItemList.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_src_components_sidebar_jsx",
+      "label": "Sidebar.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "sidebar_iconhome",
+      "label": "IconHome()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "sidebar_iconmsg",
+      "label": "IconMsg()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "sidebar_iconlist",
+      "label": "IconList()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "sidebar_iconai",
+      "label": "IconAI()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L26"
+    },
+    {
+      "id": "sidebar_iconhistory",
+      "label": "IconHistory()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L34"
+    },
+    {
+      "id": "sidebar_icongroups",
+      "label": "IconGroups()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L41"
+    },
+    {
+      "id": "sidebar_iconwa",
+      "label": "IconWA()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L50"
+    },
+    {
+      "id": "sidebar_sidebar",
+      "label": "Sidebar()",
+      "file_type": "code",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L56"
+    },
+    {
+      "id": "client_src_components_ai_resultcards_jsx",
+      "label": "ResultCards.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "resultcards_dot",
+      "label": "Dot()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L9"
+    },
+    {
+      "id": "resultcards_sectionlabel",
+      "label": "SectionLabel()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L18"
+    },
+    {
+      "id": "resultcards_minilist",
+      "label": "MiniList()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L29"
+    },
+    {
+      "id": "resultcards_reqcard",
+      "label": "ReqCard()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L55"
+    },
+    {
+      "id": "resultcards_summarizeresult",
+      "label": "SummarizeResult()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L109"
+    },
+    {
+      "id": "resultcards_imageinsightcard",
+      "label": "ImageInsightCard()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L125"
+    },
+    {
+      "id": "resultcards_explainresult",
+      "label": "ExplainResult()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L177"
+    },
+    {
+      "id": "resultcards_replyresult",
+      "label": "ReplyResult()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L273"
+    },
+    {
+      "id": "resultcards_tickettomarkdown",
+      "label": "ticketToMarkdown()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L345"
+    },
+    {
+      "id": "resultcards_jiraticketcard",
+      "label": "JiraTicketCard()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L369"
+    },
+    {
+      "id": "resultcards_jiraresult",
+      "label": "JiraResult()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L541"
+    },
+    {
+      "id": "client_src_components_ai_messagepanel_jsx",
+      "label": "MessagePanel.jsx",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "messagepanel_formatdate",
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L17"
+    },
+    {
+      "id": "messagepanel_messagepanel",
+      "label": "MessagePanel()",
+      "file_type": "code",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L29"
+    },
+    {
+      "id": "client_src_hooks_usefetch_js",
+      "label": "useFetch.js",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useFetch.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "usefetch_usefetch",
+      "label": "useFetch()",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useFetch.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "client_src_hooks_useinfinitemessages_js",
+      "label": "useInfiniteMessages.js",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useInfiniteMessages.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "useinfinitemessages_useinfinitemessages",
+      "label": "useInfiniteMessages()",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useInfiniteMessages.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "client_src_hooks_useautorefresh_js",
+      "label": "useAutoRefresh.js",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useAutoRefresh.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "useautorefresh_useautorefresh",
+      "label": "useAutoRefresh()",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useAutoRefresh.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "client_src_hooks_useaipanel_js",
+      "label": "useAIPanel.js",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useAIPanel.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "useaipanel_useaipanel",
+      "label": "useAIPanel()",
+      "file_type": "code",
+      "source_file": "client/src/hooks/useAIPanel.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "client_src_api_client_js",
+      "label": "client.js",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "client_authheader",
+      "label": "authHeader()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "client_request",
+      "label": "request()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "client_qs",
+      "label": "qs()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L20"
+    },
+    {
+      "id": "client_fetchgroups",
+      "label": "fetchGroups()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L29"
+    },
+    {
+      "id": "client_fetchmessages",
+      "label": "fetchMessages()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L33"
+    },
+    {
+      "id": "client_fetchsenders",
+      "label": "fetchSenders()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L42"
+    },
+    {
+      "id": "client_fetchsummaries",
+      "label": "fetchSummaries()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L46"
+    },
+    {
+      "id": "client_runaiaction",
+      "label": "runAIAction()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L55"
+    },
+    {
+      "id": "client_fetchaihistory",
+      "label": "fetchAIHistory()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L75"
+    },
+    {
+      "id": "client_triggersummary",
+      "label": "triggerSummary()",
+      "file_type": "code",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L88"
+    },
+    {
+      "id": "client_src_pages_aiactionsview_jsx",
+      "label": "AIActionsView.jsx",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "aiactionsview_formatdate",
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L19"
+    },
+    {
+      "id": "aiactionsview_getpreview",
+      "label": "getPreview()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L38"
+    },
+    {
+      "id": "aiactionsview_historyitem",
+      "label": "HistoryItem()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L57"
+    },
+    {
+      "id": "aiactionsview_imagemodal",
+      "label": "ImageModal()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L117"
+    },
+    {
+      "id": "aiactionsview_aiactionsview",
+      "label": "AIActionsView()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L199"
+    },
+    {
+      "id": "client_src_pages_summaryview_jsx",
+      "label": "SummaryView.jsx",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "summaryview_formatdate",
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "summaryview_localtoiso",
+      "label": "localToISO()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L29"
+    },
+    {
+      "id": "summaryview_prioritybadge",
+      "label": "PriorityBadge()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L50"
+    },
+    {
+      "id": "summaryview_requirementcard",
+      "label": "RequirementCard()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L60"
+    },
+    {
+      "id": "summaryview_requirementslist",
+      "label": "RequirementsList()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L223"
+    },
+    {
+      "id": "summaryview_summarycard",
+      "label": "SummaryCard()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L246"
+    },
+    {
+      "id": "summaryview_messagestable",
+      "label": "MessagesTable()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L306"
+    },
+    {
+      "id": "summaryview_highlightmention",
+      "label": "highlightMention()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L434"
+    },
+    {
+      "id": "summaryview_summaryview",
+      "label": "SummaryView()",
+      "file_type": "code",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L456"
+    },
+    {
+      "id": "client_src_pages_groupedmessagesview_jsx",
+      "label": "GroupedMessagesView.jsx",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "groupedmessagesview_formattime",
+      "label": "formatTime()",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L25"
+    },
+    {
+      "id": "groupedmessagesview_mapgroupstomessages",
+      "label": "mapGroupsToMessages()",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L36"
+    },
+    {
+      "id": "groupedmessagesview_messagerow",
+      "label": "MessageRow()",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L68"
+    },
+    {
+      "id": "groupedmessagesview_requirementcard",
+      "label": "RequirementCard()",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L105"
+    },
+    {
+      "id": "groupedmessagesview_initgroupstate",
+      "label": "initGroupState()",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L274"
+    },
+    {
+      "id": "groupedmessagesview_groupedmessagesview",
+      "label": "GroupedMessagesView()",
+      "file_type": "code",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L278"
+    },
+    {
+      "id": "client_src_pages_dashboard_jsx",
+      "label": "Dashboard.jsx",
+      "file_type": "code",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "dashboard_timeago",
+      "label": "timeAgo()",
+      "file_type": "code",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L5"
+    },
+    {
+      "id": "dashboard_groupcard",
+      "label": "GroupCard()",
+      "file_type": "code",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L16"
+    },
+    {
+      "id": "dashboard_dashboard",
+      "label": "Dashboard()",
+      "file_type": "code",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L49"
+    },
+    {
+      "id": "client_src_pages_aihistoryview_jsx",
+      "label": "AIHistoryView.jsx",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "aihistoryview_formatdate",
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L27"
+    },
+    {
+      "id": "aihistoryview_formattime",
+      "label": "formatTime()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L35"
+    },
+    {
+      "id": "aihistoryview_getpreview",
+      "label": "getPreview()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L40"
+    },
+    {
+      "id": "aihistoryview_computekeyindices",
+      "label": "computeKeyIndices()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L64"
+    },
+    {
+      "id": "aihistoryview_actionbadge",
+      "label": "ActionBadge()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L84"
+    },
+    {
+      "id": "aihistoryview_messageitem",
+      "label": "MessageItem()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L97"
+    },
+    {
+      "id": "aihistoryview_detaildrawer",
+      "label": "DetailDrawer()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L169"
+    },
+    {
+      "id": "aihistoryview_aihistoryview",
+      "label": "AIHistoryView()",
+      "file_type": "code",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L492"
+    },
+    {
+      "id": "client_src_pages_messagesview_jsx",
+      "label": "MessagesView.jsx",
+      "file_type": "code",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "messagesview_formatdate",
+      "label": "formatDate()",
+      "file_type": "code",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L11"
+    },
+    {
+      "id": "messagesview_typebadge",
+      "label": "TypeBadge()",
+      "file_type": "code",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L28"
+    },
+    {
+      "id": "messagesview_messagerow",
+      "label": "MessageRow()",
+      "file_type": "code",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L58"
+    },
+    {
+      "id": "messagesview_imagemodal",
+      "label": "ImageModal()",
+      "file_type": "code",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L191"
+    },
+    {
+      "id": "messagesview_messagesview",
+      "label": "MessagesView()",
+      "file_type": "code",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L282"
+    },
+    {
+      "id": "src_app_js",
+      "label": "app.js",
+      "file_type": "code",
+      "source_file": "src/app.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_scraper_whatsapp_scraper_js",
+      "label": "whatsapp.scraper.js",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "whatsapp_scraper_scrapegroupmessages",
+      "label": "scrapeGroupMessages()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L16"
+    },
+    {
+      "id": "whatsapp_scraper_opengroup",
+      "label": "openGroup()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L25"
+    },
+    {
+      "id": "whatsapp_scraper_returntosearchstate",
+      "label": "returnToSearchState()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L59"
+    },
+    {
+      "id": "whatsapp_scraper_findchatrow",
+      "label": "findChatRow()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L70"
+    },
+    {
+      "id": "whatsapp_scraper_extractfullhistory",
+      "label": "extractFullHistory()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L109"
+    },
+    {
+      "id": "whatsapp_scraper_extractsincecursor",
+      "label": "extractSinceCursor()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L293"
+    },
+    {
+      "id": "whatsapp_scraper_scrolltobottom",
+      "label": "scrollToBottom()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L390"
+    },
+    {
+      "id": "src_scraper_scraper_dedup_js",
+      "label": "scraper.dedup.js",
+      "file_type": "code",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "scraper_dedup_getcursor",
+      "label": "getCursor()",
+      "file_type": "code",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L30"
+    },
+    {
+      "id": "scraper_dedup_initcursor",
+      "label": "initCursor()",
+      "file_type": "code",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L34"
+    },
+    {
+      "id": "scraper_dedup_filternew",
+      "label": "filterNew()",
+      "file_type": "code",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L52"
+    },
+    {
+      "id": "scraper_dedup_marksent",
+      "label": "markSent()",
+      "file_type": "code",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L77"
+    },
+    {
+      "id": "scraper_dedup_fingerprint",
+      "label": "fingerprint()",
+      "file_type": "code",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L103"
+    },
+    {
+      "id": "src_scraper_index_js",
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "src/scraper/index.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "index_scrapegroups",
+      "label": "scrapeGroups()",
+      "file_type": "code",
+      "source_file": "src/scraper/index.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "src_scraper_whatsapp_parser_js",
+      "label": "whatsapp.parser.js",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "whatsapp_parser_parsepreplaintext",
+      "label": "parsePrePlainText()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "whatsapp_parser_parsewhatsapptime",
+      "label": "parseWhatsAppTime()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L39"
+    },
+    {
+      "id": "whatsapp_parser_extractmessagesfromdom",
+      "label": "extractMessagesFromDOM()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L95"
+    },
+    {
+      "id": "src_scraper_whatsapp_session_js",
+      "label": "whatsapp.session.js",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "whatsapp_session_launchmainsession",
+      "label": "launchMainSession()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "whatsapp_session_opengrouppage",
+      "label": "openGroupPage()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "whatsapp_session_closegrouppage",
+      "label": "closeGroupPage()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L77"
+    },
+    {
+      "id": "whatsapp_session_closesession",
+      "label": "closeSession()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L85"
+    },
+    {
+      "id": "whatsapp_session_waitforlogin",
+      "label": "waitForLogin()",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L89"
+    },
+    {
+      "id": "src_scraper_message_client_js",
+      "label": "message.client.js",
+      "file_type": "code",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "message_client_authheaders",
+      "label": "authHeaders()",
+      "file_type": "code",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "message_client_postmessage",
+      "label": "postMessage()",
+      "file_type": "code",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L21"
+    },
+    {
+      "id": "message_client_fetchlatestmessagetime",
+      "label": "fetchLatestMessageTime()",
+      "file_type": "code",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "src_scraper_whatsapp_selectors_js",
+      "label": "whatsapp.selectors.js",
+      "file_type": "code",
+      "source_file": "src/scraper/whatsapp.selectors.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_middleware_auth_js",
+      "label": "auth.js",
+      "file_type": "code",
+      "source_file": "src/middleware/auth.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "auth_authmiddleware",
+      "label": "authMiddleware()",
+      "file_type": "code",
+      "source_file": "src/middleware/auth.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "src_config_database_js",
+      "label": "database.js",
+      "file_type": "code",
+      "source_file": "src/config/database.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_errors_apierror_js",
+      "label": "ApiError.js",
+      "file_type": "code",
+      "source_file": "src/errors/ApiError.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "apierror_apierror",
+      "label": "ApiError",
+      "file_type": "code",
+      "source_file": "src/errors/ApiError.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "apierror_apierror_constructor",
+      "label": ".constructor()",
+      "file_type": "code",
+      "source_file": "src/errors/ApiError.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "src_modules_message_message_validator_js",
+      "label": "message.validator.js",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.validator.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "message_validator_validatecreatemessage",
+      "label": "validateCreateMessage()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.validator.js",
+      "source_location": "L5"
+    },
+    {
+      "id": "message_validator_validategetmessages",
+      "label": "validateGetMessages()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.validator.js",
+      "source_location": "L59"
+    },
+    {
+      "id": "src_modules_message_message_routes_js",
+      "label": "message.routes.js",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.routes.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_modules_message_message_controller_js",
+      "label": "message.controller.js",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "message_controller_createmessage",
+      "label": "createMessage()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "message_controller_fetchsenders",
+      "label": "fetchSenders()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L33"
+    },
+    {
+      "id": "message_controller_fetchmessages",
+      "label": "fetchMessages()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "src_modules_message_message_service_js",
+      "label": "message.service.js",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "message_service_repo",
+      "label": "repo()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "message_service_resolvemessagetype",
+      "label": "resolveMessageType()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "message_service_savemessage",
+      "label": "saveMessage()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L31"
+    },
+    {
+      "id": "message_service_applyfilters",
+      "label": "applyFilters()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L83"
+    },
+    {
+      "id": "message_service_getmessagesbygroup",
+      "label": "getMessagesByGroup()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L113"
+    },
+    {
+      "id": "message_service_getsendersbygroup",
+      "label": "getSendersByGroup()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L186"
+    },
+    {
+      "id": "message_service_getunprocessedmessages",
+      "label": "getUnprocessedMessages()",
+      "file_type": "code",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L203"
+    },
+    {
+      "id": "src_modules_image_image_storage_js",
+      "label": "image.storage.js",
+      "file_type": "code",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "image_storage_isbase64dataurl",
+      "label": "isBase64DataUrl()",
+      "file_type": "code",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L24"
+    },
+    {
+      "id": "image_storage_saveimagefromdataurl",
+      "label": "saveImageFromDataUrl()",
+      "file_type": "code",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L42"
+    },
+    {
+      "id": "src_modules_image_image_blur_js",
+      "label": "image.blur.js",
+      "file_type": "code",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "image_blur_islocaluploadpath",
+      "label": "isLocalUploadPath()",
+      "file_type": "code",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "image_blur_blurimageforllm",
+      "label": "blurImageForLLM()",
+      "file_type": "code",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L31"
+    },
+    {
+      "id": "src_modules_ai_gemini_service_js",
+      "label": "gemini.service.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "gemini_service_getmodel",
+      "label": "getModel()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "gemini_service_isretryable",
+      "label": "isRetryable()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L48"
+    },
+    {
+      "id": "gemini_service_isbase64dataurl",
+      "label": "isBase64DataUrl()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L67"
+    },
+    {
+      "id": "gemini_service_dataurltopart",
+      "label": "dataUrlToPart()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L76"
+    },
+    {
+      "id": "gemini_service_buildmultimodalcontent",
+      "label": "buildMultimodalContent()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L100"
+    },
+    {
+      "id": "gemini_service_callmodel",
+      "label": "callModel()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L137"
+    },
+    {
+      "id": "gemini_service_generateairesponse",
+      "label": "generateAIResponse()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L179"
+    },
+    {
+      "id": "gemini_service_generatesummary",
+      "label": "generateSummary()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L213"
+    },
+    {
+      "id": "src_modules_ai_json_parser_js",
+      "label": "json.parser.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "json_parser_stripcodefences",
+      "label": "stripCodeFences()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "json_parser_tostringarray",
+      "label": "toStringArray()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "json_parser_parsejson",
+      "label": "parseJSON()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L30"
+    },
+    {
+      "id": "json_parser_assertobject",
+      "label": "assertObject()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L59"
+    },
+    {
+      "id": "json_parser_parsesummarize",
+      "label": "parseSummarize()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L67"
+    },
+    {
+      "id": "json_parser_parseexplain",
+      "label": "parseExplain()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L93"
+    },
+    {
+      "id": "json_parser_parsereply",
+      "label": "parseReply()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L118"
+    },
+    {
+      "id": "json_parser_parsejira",
+      "label": "parseJira()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L135"
+    },
+    {
+      "id": "json_parser_parsegroup",
+      "label": "parseGroup()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L160"
+    },
+    {
+      "id": "json_parser_parsechat",
+      "label": "parseChat()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L178"
+    },
+    {
+      "id": "json_parser_parseairesponse",
+      "label": "parseAIResponse()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L210"
+    },
+    {
+      "id": "json_parser_parsesummaryresponse",
+      "label": "parseSummaryResponse()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L219"
+    },
+    {
+      "id": "src_modules_ai_ai_controller_js",
+      "label": "ai.controller.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ai_controller_handleaiaction",
+      "label": "handleAIAction()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "ai_controller_handleaihistory",
+      "label": "handleAIHistory()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L63"
+    },
+    {
+      "id": "src_modules_ai_ai_log_repository_js",
+      "label": "ai.log.repository.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ai_log_repository_repo",
+      "label": "repo()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L4"
+    },
+    {
+      "id": "ai_log_repository_saveailog",
+      "label": "saveAiLog()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "ai_log_repository_getailogs",
+      "label": "getAiLogs()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L27"
+    },
+    {
+      "id": "src_modules_ai_ai_service_js",
+      "label": "ai.service.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "ai_service_normalisemessages",
+      "label": "normaliseMessages()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L19"
+    },
+    {
+      "id": "ai_service_runaiaction",
+      "label": "runAIAction()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L59"
+    },
+    {
+      "id": "src_modules_ai_prompt_builder_js",
+      "label": "prompt.builder.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "prompt_builder_hasimage",
+      "label": "hasImage()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L201"
+    },
+    {
+      "id": "prompt_builder_buildtranscript",
+      "label": "buildTranscript()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L205"
+    },
+    {
+      "id": "prompt_builder_buildprompt",
+      "label": "buildPrompt()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L233"
+    },
+    {
+      "id": "prompt_builder_buildsummaryprompt",
+      "label": "buildSummaryPrompt()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L306"
+    },
+    {
+      "id": "prompt_builder_actionusesjson",
+      "label": "actionUsesJson()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L310"
+    },
+    {
+      "id": "src_modules_ai_ai_routes_js",
+      "label": "ai.routes.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/ai.routes.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_modules_ai_retry_js",
+      "label": "retry.js",
+      "file_type": "code",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "retry_defaultisretryable",
+      "label": "defaultIsRetryable()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "retry_withretry",
+      "label": "withRetry()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L37"
+    },
+    {
+      "id": "retry_sleep",
+      "label": "sleep()",
+      "file_type": "code",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L65"
+    },
+    {
+      "id": "src_modules_summary_summary_service_js",
+      "label": "summary.service.js",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "summary_service_chunk_size",
+      "label": "CHUNK_SIZE()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L18"
+    },
+    {
+      "id": "summary_service_groupchunk",
+      "label": "groupChunk()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L30"
+    },
+    {
+      "id": "summary_service_summarizegroup",
+      "label": "summarizeGroup()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L51"
+    },
+    {
+      "id": "summary_service_processgroupsummary",
+      "label": "processGroupSummary()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L80"
+    },
+    {
+      "id": "summary_service_getgroupsummaries",
+      "label": "getGroupSummaries()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L167"
+    },
+    {
+      "id": "src_modules_summary_summary_repository_js",
+      "label": "summary.repository.js",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "summary_repository_messagerepo",
+      "label": "messageRepo()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "summary_repository_summaryrepo",
+      "label": "summaryRepo()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "summary_repository_logrepo",
+      "label": "logRepo()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L8"
+    },
+    {
+      "id": "summary_repository_getcursor",
+      "label": "getCursor()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "summary_repository_fetchunprocessedmessages",
+      "label": "fetchUnprocessedMessages()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L29"
+    },
+    {
+      "id": "summary_repository_savesummaryandadvancecursor",
+      "label": "saveSummaryAndAdvanceCursor()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L52"
+    },
+    {
+      "id": "summary_repository_savegroupedsummaries",
+      "label": "saveGroupedSummaries()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L115"
+    },
+    {
+      "id": "summary_repository_getactivegroups",
+      "label": "getActiveGroups()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L168"
+    },
+    {
+      "id": "summary_repository_getsummariesbygroup",
+      "label": "getSummariesByGroup()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L185"
+    },
+    {
+      "id": "src_modules_summary_groups_routes_js",
+      "label": "groups.routes.js",
+      "file_type": "code",
+      "source_file": "src/modules/summary/groups.routes.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_modules_summary_summary_controller_js",
+      "label": "summary.controller.js",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "summary_controller_triggerprocessing",
+      "label": "triggerProcessing()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "summary_controller_fetchsummaries",
+      "label": "fetchSummaries()",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L36"
+    },
+    {
+      "id": "src_modules_summary_summary_routes_js",
+      "label": "summary.routes.js",
+      "file_type": "code",
+      "source_file": "src/modules/summary/summary.routes.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_entities_message_js",
+      "label": "Message.js",
+      "file_type": "code",
+      "source_file": "src/entities/Message.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_entities_user_js",
+      "label": "User.js",
+      "file_type": "code",
+      "source_file": "src/entities/User.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_entities_processinglog_js",
+      "label": "ProcessingLog.js",
+      "file_type": "code",
+      "source_file": "src/entities/ProcessingLog.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_entities_summary_js",
+      "label": "Summary.js",
+      "file_type": "code",
+      "source_file": "src/entities/Summary.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_entities_ailog_js",
+      "label": "AiLog.js",
+      "file_type": "code",
+      "source_file": "src/entities/AiLog.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_cron_scraperjob_js",
+      "label": "scraperJob.js",
+      "file_type": "code",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "scraperjob_runscraperjob",
+      "label": "runScraperJob()",
+      "file_type": "code",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "scraperjob_scrapeandsend",
+      "label": "scrapeAndSend()",
+      "file_type": "code",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L83"
+    },
+    {
+      "id": "scraperjob_sendwithretry",
+      "label": "sendWithRetry()",
+      "file_type": "code",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L128"
+    },
+    {
+      "id": "scraperjob_startscraperjob",
+      "label": "startScraperJob()",
+      "file_type": "code",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L175"
+    },
+    {
+      "id": "scraperjob_sleep",
+      "label": "sleep()",
+      "file_type": "code",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L194"
+    },
+    {
+      "id": "src_cron_summaryjob_js",
+      "label": "summaryJob.js",
+      "file_type": "code",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "summaryjob_processwithretry",
+      "label": "processWithRetry()",
+      "file_type": "code",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "summaryjob_runsummaryjob",
+      "label": "runSummaryJob()",
+      "file_type": "code",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L51"
+    },
+    {
+      "id": "summaryjob_startsummaryjob",
+      "label": "startSummaryJob()",
+      "file_type": "code",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L90"
+    },
+    {
+      "id": "summaryjob_sleep",
+      "label": "sleep()",
+      "file_type": "code",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L109"
+    },
+    {
+      "id": "src_cron_cleanupjob_js",
+      "label": "cleanupJob.js",
+      "file_type": "code",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "cleanupjob_runcleanup",
+      "label": "runCleanup()",
+      "file_type": "code",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L11"
+    },
+    {
+      "id": "cleanupjob_startcleanupjob",
+      "label": "startCleanupJob()",
+      "file_type": "code",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L31"
+    }
+  ],
+  "edges": [
+    {
+      "source": "server_js",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "server_js",
+      "target": "src_app_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "server_js",
+      "target": "src_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "server_js",
+      "target": "src_cron_summaryjob_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "server_js",
+      "target": "src_cron_scraperjob_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "server_js",
+      "target": "src_cron_cleanupjob_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "server.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_dedupe_messages_js",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dedupe-messages.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_dedupe_messages_js",
+      "target": "scripts_src_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/dedupe-messages.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_reset_data_js",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/reset-data.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_reset_data_js",
+      "target": "scripts_src_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/reset-data.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_list_models_js",
+      "target": "config",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/list-models.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_list_models_js",
+      "target": "generative_ai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "scripts/list-models.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_vite_config_js",
+      "target": "vite",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/vite.config.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_vite_config_js",
+      "target": "plugin_react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/vite.config.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_main_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/main.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_main_jsx",
+      "target": "client",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/main.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_main_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/main.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_main_jsx",
+      "target": "client_src_app_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/main.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_main_jsx",
+      "target": "client_src_styles_global_css",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/main.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_components_sidebar_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_pages_dashboard_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_pages_messagesview_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_pages_summaryview_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_pages_aiactionsview_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_pages_aihistoryview_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "client_src_pages_groupedmessagesview_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_app_jsx",
+      "target": "app_app",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/App.jsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_itemlist_jsx",
+      "target": "itemlist_itemlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ItemList.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_iconhome",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_iconmsg",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_iconlist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_iconai",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_iconhistory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_icongroups",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_iconwa",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_sidebar_jsx",
+      "target": "sidebar_sidebar",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/Sidebar.jsx",
+      "source_location": "L56",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_dot",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_sectionlabel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_minilist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_reqcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_summarizeresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_imageinsightcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_explainresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L177",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_replyresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L273",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_tickettomarkdown",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L345",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_jiraticketcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L369",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_resultcards_jsx",
+      "target": "resultcards_jiraresult",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/ResultCards.jsx",
+      "source_location": "L541",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_messagepanel_jsx",
+      "target": "client_src_components_ai_resultcards_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_messagepanel_jsx",
+      "target": "messagepanel_formatdate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_components_ai_messagepanel_jsx",
+      "target": "messagepanel_messagepanel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "messagepanel_messagepanel",
+      "target": "messagepanel_formatdate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/components/ai/MessagePanel.jsx",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_usefetch_js",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useFetch.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_usefetch_js",
+      "target": "usefetch_usefetch",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useFetch.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useinfinitemessages_js",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useInfiniteMessages.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useinfinitemessages_js",
+      "target": "client_src_hooks_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useInfiniteMessages.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useinfinitemessages_js",
+      "target": "useinfinitemessages_useinfinitemessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useInfiniteMessages.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useautorefresh_js",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useAutoRefresh.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useautorefresh_js",
+      "target": "useautorefresh_useautorefresh",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useAutoRefresh.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useaipanel_js",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useAIPanel.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useaipanel_js",
+      "target": "client_src_hooks_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useAIPanel.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_hooks_useaipanel_js",
+      "target": "useaipanel_useaipanel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/hooks/useAIPanel.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_authheader",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_request",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_qs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_fetchgroups",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_fetchmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_fetchsenders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_fetchsummaries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_runaiaction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_fetchaihistory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_api_client_js",
+      "target": "client_triggersummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "client_request",
+      "target": "client_authheader",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchgroups",
+      "target": "client_request",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchmessages",
+      "target": "client_request",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchmessages",
+      "target": "client_qs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchsenders",
+      "target": "client_request",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchsenders",
+      "target": "client_qs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchsummaries",
+      "target": "client_request",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchsummaries",
+      "target": "client_qs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "client_runaiaction",
+      "target": "client_authheader",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchaihistory",
+      "target": "client_request",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "client_fetchaihistory",
+      "target": "client_qs",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "client_triggersummary",
+      "target": "client_authheader",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/api/client.js",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "client_src_pages_hooks_usefetch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "client_src_pages_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "client_src_pages_hooks_useinfinitemessages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "client_src_pages_components_ai_resultcards_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "aiactionsview_formatdate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "aiactionsview_getpreview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "aiactionsview_historyitem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L57",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "aiactionsview_imagemodal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aiactionsview_jsx",
+      "target": "aiactionsview_aiactionsview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L199",
+      "weight": 1.0
+    },
+    {
+      "source": "aiactionsview_historyitem",
+      "target": "aiactionsview_getpreview",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "aiactionsview_historyitem",
+      "target": "aiactionsview_formatdate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L91",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "client_src_pages_hooks_usefetch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "client_src_pages_hooks_useautorefresh_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "client_src_pages_hooks_useinfinitemessages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "client_src_pages_components_itemlist_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "client_src_pages_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_formatdate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_localtoiso",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_prioritybadge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_requirementcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_requirementslist",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L223",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_summarycard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L246",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_messagestable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_highlightmention",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L434",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_summaryview_jsx",
+      "target": "summaryview_summaryview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L456",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryview_summarycard",
+      "target": "summaryview_formatdate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L269",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryview_messagestable",
+      "target": "summaryview_localtoiso",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L309",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryview_summaryview",
+      "target": "summaryview_formatdate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L717",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "client_src_pages_hooks_usefetch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "client_src_pages_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "client_src_pages_components_ai_resultcards_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "groupedmessagesview_formattime",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "groupedmessagesview_mapgroupstomessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "groupedmessagesview_messagerow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "groupedmessagesview_requirementcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L105",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "groupedmessagesview_initgroupstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L274",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_groupedmessagesview_jsx",
+      "target": "groupedmessagesview_groupedmessagesview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "groupedmessagesview_messagerow",
+      "target": "groupedmessagesview_formattime",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_dashboard_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_dashboard_jsx",
+      "target": "client_src_pages_hooks_usefetch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_dashboard_jsx",
+      "target": "client_src_pages_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_dashboard_jsx",
+      "target": "dashboard_timeago",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_dashboard_jsx",
+      "target": "dashboard_groupcard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_dashboard_jsx",
+      "target": "dashboard_dashboard",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_groupcard",
+      "target": "dashboard_timeago",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "client_src_pages_hooks_usefetch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "client_src_pages_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "client_src_pages_components_ai_resultcards_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_formatdate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_formattime",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_getpreview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_computekeyindices",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L64",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_actionbadge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L84",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_messageitem",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_detaildrawer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_aihistoryview_jsx",
+      "target": "aihistoryview_aihistoryview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L492",
+      "weight": 1.0
+    },
+    {
+      "source": "aihistoryview_messageitem",
+      "target": "aihistoryview_formattime",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L153",
+      "weight": 1.0
+    },
+    {
+      "source": "aihistoryview_detaildrawer",
+      "target": "aihistoryview_computekeyindices",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L190",
+      "weight": 1.0
+    },
+    {
+      "source": "aihistoryview_detaildrawer",
+      "target": "aihistoryview_formatdate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L276",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "react",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "react_router_dom",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "client_src_pages_hooks_useinfinitemessages_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "client_src_pages_hooks_useaipanel_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "client_src_pages_hooks_usefetch_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "client_src_pages_api_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "client_src_pages_components_ai_messagepanel_tsx",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "messagesview_formatdate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "messagesview_typebadge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "messagesview_messagerow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "messagesview_imagemodal",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L191",
+      "weight": 1.0
+    },
+    {
+      "source": "client_src_pages_messagesview_jsx",
+      "target": "messagesview_messagesview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L282",
+      "weight": 1.0
+    },
+    {
+      "source": "messagesview_messagerow",
+      "target": "messagesview_formatdate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L98",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "express",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "url",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "express_rate_limit",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "src_modules_message_message_routes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "src_modules_summary_summary_routes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "src_modules_summary_groups_routes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "src_modules_ai_ai_routes_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "src_middleware_auth_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_js",
+      "target": "src_errors_apierror_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "src_scraper_whatsapp_selectors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "src_scraper_whatsapp_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_scrapegroupmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_opengroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_returntosearchstate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_findchatrow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_extractfullhistory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_extractsincecursor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_scraper_js",
+      "target": "whatsapp_scraper_scrolltobottom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L390",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_scraper_scrapegroupmessages",
+      "target": "whatsapp_scraper_opengroup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_scraper_scrapegroupmessages",
+      "target": "whatsapp_scraper_extractfullhistory",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_scraper_scrapegroupmessages",
+      "target": "whatsapp_scraper_extractsincecursor",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_scraper_opengroup",
+      "target": "whatsapp_scraper_returntosearchstate",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_scraper_opengroup",
+      "target": "whatsapp_scraper_findchatrow",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_scraper_extractsincecursor",
+      "target": "whatsapp_scraper_scrolltobottom",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.scraper.js",
+      "source_location": "L298",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_scraper_dedup_js",
+      "target": "src_scraper_message_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_scraper_dedup_js",
+      "target": "scraper_dedup_getcursor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_scraper_dedup_js",
+      "target": "scraper_dedup_initcursor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_scraper_dedup_js",
+      "target": "scraper_dedup_filternew",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_scraper_dedup_js",
+      "target": "scraper_dedup_marksent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_scraper_dedup_js",
+      "target": "scraper_dedup_fingerprint",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "scraper_dedup_marksent",
+      "target": "scraper_dedup_fingerprint",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_index_js",
+      "target": "src_scraper_whatsapp_session_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/index.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_index_js",
+      "target": "src_scraper_whatsapp_scraper_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/index.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_index_js",
+      "target": "index_scrapegroups",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/index.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_parser_js",
+      "target": "whatsapp_parser_parsepreplaintext",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_parser_js",
+      "target": "whatsapp_parser_parsewhatsapptime",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_parser_js",
+      "target": "whatsapp_parser_extractmessagesfromdom",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_parser_parsepreplaintext",
+      "target": "whatsapp_parser_parsewhatsapptime",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.parser.js",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "playwright",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "src_scraper_whatsapp_selectors_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "whatsapp_session_launchmainsession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "whatsapp_session_opengrouppage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "whatsapp_session_closegrouppage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L77",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "whatsapp_session_closesession",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L85",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_whatsapp_session_js",
+      "target": "whatsapp_session_waitforlogin",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "whatsapp_session_launchmainsession",
+      "target": "whatsapp_session_waitforlogin",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/whatsapp.session.js",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_message_client_js",
+      "target": "message_client_authheaders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_message_client_js",
+      "target": "message_client_postmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "src_scraper_message_client_js",
+      "target": "message_client_fetchlatestmessagetime",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "message_client_postmessage",
+      "target": "message_client_authheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "message_client_fetchlatestmessagetime",
+      "target": "message_client_authheaders",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/scraper/message.client.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "src_middleware_auth_js",
+      "target": "auth_authmiddleware",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/middleware/auth.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "reflect_metadata",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "typeorm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "src_config_entities_user_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "src_config_entities_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "src_config_entities_summary_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "src_config_entities_processinglog_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_config_database_js",
+      "target": "src_config_entities_ailog_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/config/database.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_errors_apierror_js",
+      "target": "apierror_apierror",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/errors/ApiError.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "apierror_apierror",
+      "target": "apierror_apierror_constructor",
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/errors/ApiError.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_validator_js",
+      "target": "message_validator_validatecreatemessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.validator.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_validator_js",
+      "target": "message_validator_validategetmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.validator.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_routes_js",
+      "target": "express",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.routes.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_routes_js",
+      "target": "src_modules_message_message_controller_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.routes.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_controller_js",
+      "target": "src_modules_message_message_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_controller_js",
+      "target": "src_modules_message_message_validator_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_controller_js",
+      "target": "message_controller_createmessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_controller_js",
+      "target": "message_controller_fetchsenders",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_controller_js",
+      "target": "message_controller_fetchmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "src_modules_message_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "src_modules_message_entities_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "src_modules_message_image_image_storage_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_repo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_resolvemessagetype",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_savemessage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_applyfilters",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_getmessagesbygroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L113",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_getsendersbygroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_message_message_service_js",
+      "target": "message_service_getunprocessedmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L203",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_savemessage",
+      "target": "message_service_resolvemessagetype",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_savemessage",
+      "target": "message_service_repo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L53",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_getmessagesbygroup",
+      "target": "message_service_repo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_getmessagesbygroup",
+      "target": "message_service_applyfilters",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_getsendersbygroup",
+      "target": "message_service_repo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_getunprocessedmessages",
+      "target": "message_service_repo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L204",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "promises",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "fs",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "crypto",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "url",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "image_storage_isbase64dataurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_storage_js",
+      "target": "image_storage_saveimagefromdataurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.storage.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_blur_js",
+      "target": "path",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_blur_js",
+      "target": "url",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_blur_js",
+      "target": "sharp",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_blur_js",
+      "target": "image_blur_islocaluploadpath",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_image_image_blur_js",
+      "target": "image_blur_blurimageforllm",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/image/image.blur.js",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "generative_ai",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "src_modules_ai_prompt_builder_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "src_modules_ai_json_parser_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "src_modules_ai_retry_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_getmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_isretryable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_isbase64dataurl",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_dataurltopart",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_buildmultimodalcontent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_callmodel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_generateairesponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_gemini_service_js",
+      "target": "gemini_service_generatesummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L213",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_buildmultimodalcontent",
+      "target": "gemini_service_dataurltopart",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_callmodel",
+      "target": "gemini_service_getmodel",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L138",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_generateairesponse",
+      "target": "gemini_service_buildmultimodalcontent",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L188",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "src_modules_ai_prompt_builder_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_stripcodefences",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_tostringarray",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsejson",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_assertobject",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsesummarize",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parseexplain",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsereply",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L118",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsejira",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L135",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsegroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsechat",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L178",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parseairesponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L210",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_json_parser_js",
+      "target": "json_parser_parsesummaryresponse",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L219",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsejson",
+      "target": "json_parser_stripcodefences",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L40",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsesummarize",
+      "target": "json_parser_parsejson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L68",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsesummarize",
+      "target": "json_parser_assertobject",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L69",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parseexplain",
+      "target": "json_parser_parsejson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L94",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parseexplain",
+      "target": "json_parser_assertobject",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L95",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parseexplain",
+      "target": "json_parser_tostringarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsereply",
+      "target": "json_parser_parsejson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsereply",
+      "target": "json_parser_assertobject",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L120",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsejira",
+      "target": "json_parser_parsejson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsejira",
+      "target": "json_parser_assertobject",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsegroup",
+      "target": "json_parser_parsejson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L161",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsegroup",
+      "target": "json_parser_assertobject",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsechat",
+      "target": "json_parser_parsejson",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L179",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsechat",
+      "target": "json_parser_assertobject",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsechat",
+      "target": "json_parser_tostringarray",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "json_parser_parsesummaryresponse",
+      "target": "json_parser_parsesummarize",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/json.parser.js",
+      "source_location": "L220",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_controller_js",
+      "target": "src_modules_ai_ai_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_controller_js",
+      "target": "src_modules_ai_ai_log_repository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_controller_js",
+      "target": "ai_controller_handleaiaction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_controller_js",
+      "target": "ai_controller_handleaihistory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_log_repository_js",
+      "target": "src_modules_ai_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_log_repository_js",
+      "target": "src_modules_ai_entities_ailog_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_log_repository_js",
+      "target": "ai_log_repository_repo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_log_repository_js",
+      "target": "ai_log_repository_saveailog",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_log_repository_js",
+      "target": "ai_log_repository_getailogs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_log_repository_saveailog",
+      "target": "ai_log_repository_repo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_log_repository_getailogs",
+      "target": "ai_log_repository_repo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.log.repository.js",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_service_js",
+      "target": "src_modules_ai_gemini_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_service_js",
+      "target": "src_modules_ai_prompt_builder_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_service_js",
+      "target": "src_modules_ai_ai_log_repository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_service_js",
+      "target": "ai_service_normalisemessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_service_js",
+      "target": "ai_service_runaiaction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_service_runaiaction",
+      "target": "ai_service_normalisemessages",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_prompt_builder_js",
+      "target": "prompt_builder_hasimage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L201",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_prompt_builder_js",
+      "target": "prompt_builder_buildtranscript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L205",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_prompt_builder_js",
+      "target": "prompt_builder_buildprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_prompt_builder_js",
+      "target": "prompt_builder_buildsummaryprompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L306",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_prompt_builder_js",
+      "target": "prompt_builder_actionusesjson",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L310",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_builder_buildprompt",
+      "target": "prompt_builder_buildtranscript",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "prompt_builder_buildsummaryprompt",
+      "target": "prompt_builder_buildprompt",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/prompt.builder.js",
+      "source_location": "L307",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_routes_js",
+      "target": "express",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.routes.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_ai_routes_js",
+      "target": "src_modules_ai_ai_controller_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/ai.routes.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_retry_js",
+      "target": "retry_defaultisretryable",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_retry_js",
+      "target": "retry_withretry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_ai_retry_js",
+      "target": "retry_sleep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "retry_withretry",
+      "target": "retry_sleep",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "src_modules_summary_ai_gemini_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "src_modules_summary_ai_ai_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "src_modules_summary_summary_repository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "summary_service_chunk_size",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "summary_service_groupchunk",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "summary_service_summarizegroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "summary_service_processgroupsummary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L80",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_service_js",
+      "target": "summary_service_getgroupsummaries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L167",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_processgroupsummary",
+      "target": "summary_service_chunk_size",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_processgroupsummary",
+      "target": "summary_service_groupchunk",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L116",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_processgroupsummary",
+      "target": "summary_service_summarizegroup",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "src_modules_summary_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "src_modules_summary_entities_message_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "src_modules_summary_entities_summary_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "src_modules_summary_entities_processinglog_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_messagerepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_summaryrepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_logrepo",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_getcursor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_fetchunprocessedmessages",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_savesummaryandadvancecursor",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_savegroupedsummaries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L115",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_getactivegroups",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_repository_js",
+      "target": "summary_repository_getsummariesbygroup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L185",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_repository_getcursor",
+      "target": "summary_repository_logrepo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_repository_fetchunprocessedmessages",
+      "target": "summary_repository_messagerepo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_repository_getactivegroups",
+      "target": "summary_repository_messagerepo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L169",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_repository_getsummariesbygroup",
+      "target": "summary_repository_summaryrepo",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.repository.js",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_groups_routes_js",
+      "target": "express",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/groups.routes.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_groups_routes_js",
+      "target": "src_modules_summary_summary_repository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/groups.routes.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_controller_js",
+      "target": "src_modules_summary_summary_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_controller_js",
+      "target": "summary_controller_triggerprocessing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_controller_js",
+      "target": "summary_controller_fetchsummaries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_routes_js",
+      "target": "express",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.routes.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_modules_summary_summary_routes_js",
+      "target": "src_modules_summary_summary_controller_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/summary/summary.routes.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_entities_message_js",
+      "target": "typeorm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/Message.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_entities_user_js",
+      "target": "typeorm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/User.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_entities_processinglog_js",
+      "target": "typeorm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/ProcessingLog.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_entities_summary_js",
+      "target": "typeorm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/Summary.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_entities_ailog_js",
+      "target": "typeorm",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/entities/AiLog.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "node_cron",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "src_cron_scraper_whatsapp_session_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "src_cron_scraper_whatsapp_scraper_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "src_cron_scraper_message_client_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "src_cron_scraper_scraper_dedup_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "scraperjob_runscraperjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "scraperjob_scrapeandsend",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L83",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "scraperjob_sendwithretry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L128",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "scraperjob_startscraperjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L175",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_scraperjob_js",
+      "target": "scraperjob_sleep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L194",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_runscraperjob",
+      "target": "scraperjob_scrapeandsend",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_scrapeandsend",
+      "target": "scraperjob_sendwithretry",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_sendwithretry",
+      "target": "scraperjob_sleep",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "node_cron",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "src_cron_modules_summary_summary_service_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "src_cron_modules_summary_summary_repository_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "summaryjob_processwithretry",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "summaryjob_runsummaryjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "summaryjob_startsummaryjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_summaryjob_js",
+      "target": "summaryjob_sleep",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryjob_processwithretry",
+      "target": "summaryjob_sleep",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_cleanupjob_js",
+      "target": "node_cron",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_cleanupjob_js",
+      "target": "src_cron_config_database_ts",
+      "relation": "imports_from",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_cleanupjob_js",
+      "target": "cleanupjob_runcleanup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "src_cron_cleanupjob_js",
+      "target": "cleanupjob_startcleanupjob",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/cron/cleanupJob.js",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "aiactionsview_aiactionsview",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "aiactionsview_aiactionsview",
+      "target": "useinfinitemessages_useinfinitemessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/AIActionsView.jsx",
+      "source_location": "L231",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryview_messagestable",
+      "target": "useinfinitemessages_useinfinitemessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L308",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryview_summaryview",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L488",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryview_summaryview",
+      "target": "useautorefresh_useautorefresh",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/SummaryView.jsx",
+      "source_location": "L520",
+      "weight": 1.0
+    },
+    {
+      "source": "groupedmessagesview_groupedmessagesview",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/GroupedMessagesView.jsx",
+      "source_location": "L292",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_groupcard",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "dashboard_dashboard",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/Dashboard.jsx",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "aihistoryview_aihistoryview",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/AIHistoryView.jsx",
+      "source_location": "L510",
+      "weight": 1.0
+    },
+    {
+      "source": "messagesview_messagesview",
+      "target": "usefetch_usefetch",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L300",
+      "weight": 1.0
+    },
+    {
+      "source": "messagesview_messagesview",
+      "target": "useinfinitemessages_useinfinitemessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L315",
+      "weight": 1.0
+    },
+    {
+      "source": "messagesview_messagesview",
+      "target": "useaipanel_useaipanel",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "client/src/pages/MessagesView.jsx",
+      "source_location": "L321",
+      "weight": 1.0
+    },
+    {
+      "source": "scraper_dedup_initcursor",
+      "target": "message_client_fetchlatestmessagetime",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/scraper/scraper.dedup.js",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "index_scrapegroups",
+      "target": "whatsapp_session_launchmainsession",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/scraper/index.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "index_scrapegroups",
+      "target": "whatsapp_session_opengrouppage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/scraper/index.js",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "index_scrapegroups",
+      "target": "whatsapp_scraper_scrapegroupmessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/scraper/index.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "index_scrapegroups",
+      "target": "whatsapp_session_closegrouppage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/scraper/index.js",
+      "source_location": "L35",
+      "weight": 1.0
+    },
+    {
+      "source": "index_scrapegroups",
+      "target": "whatsapp_session_closesession",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/scraper/index.js",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "message_controller_createmessage",
+      "target": "message_validator_validatecreatemessage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "message_controller_createmessage",
+      "target": "message_service_savemessage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "message_controller_fetchsenders",
+      "target": "message_service_getsendersbygroup",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "message_controller_fetchmessages",
+      "target": "message_validator_validategetmessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "message_controller_fetchmessages",
+      "target": "message_service_getmessagesbygroup",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.controller.js",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_savemessage",
+      "target": "gemini_service_isbase64dataurl",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "message_service_savemessage",
+      "target": "image_storage_saveimagefromdataurl",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/message/message.service.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_generateairesponse",
+      "target": "prompt_builder_buildprompt",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L187",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_generateairesponse",
+      "target": "retry_withretry",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L193",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_generatesummary",
+      "target": "prompt_builder_buildsummaryprompt",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L221",
+      "weight": 1.0
+    },
+    {
+      "source": "gemini_service_generatesummary",
+      "target": "retry_withretry",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/gemini.service.js",
+      "source_location": "L225",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_controller_handleaiaction",
+      "target": "ai_service_runaiaction",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_controller_handleaihistory",
+      "target": "ai_log_repository_getailogs",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/ai.controller.js",
+      "source_location": "L66",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_service_runaiaction",
+      "target": "gemini_service_generateairesponse",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L61",
+      "weight": 1.0
+    },
+    {
+      "source": "ai_service_runaiaction",
+      "target": "ai_log_repository_saveailog",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/ai.service.js",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "retry_withretry",
+      "target": "gemini_service_isretryable",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/ai/retry.js",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_groupchunk",
+      "target": "gemini_service_generateairesponse",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_summarizegroup",
+      "target": "ai_service_runaiaction",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_processgroupsummary",
+      "target": "summary_repository_getcursor",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_processgroupsummary",
+      "target": "summary_repository_fetchunprocessedmessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_processgroupsummary",
+      "target": "summary_repository_savegroupedsummaries",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L137",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_service_getgroupsummaries",
+      "target": "summary_repository_getsummariesbygroup",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.service.js",
+      "source_location": "L168",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_controller_triggerprocessing",
+      "target": "summary_service_processgroupsummary",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "summary_controller_fetchsummaries",
+      "target": "summary_service_getgroupsummaries",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/summary/summary.controller.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_runscraperjob",
+      "target": "whatsapp_session_launchmainsession",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_runscraperjob",
+      "target": "whatsapp_session_opengrouppage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_runscraperjob",
+      "target": "whatsapp_session_closegrouppage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L59",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_runscraperjob",
+      "target": "whatsapp_session_closesession",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_scrapeandsend",
+      "target": "scraper_dedup_initcursor",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_scrapeandsend",
+      "target": "summary_repository_getcursor",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_scrapeandsend",
+      "target": "whatsapp_scraper_scrapegroupmessages",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_scrapeandsend",
+      "target": "scraper_dedup_filternew",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L100",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_scrapeandsend",
+      "target": "scraper_dedup_marksent",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L117",
+      "weight": 1.0
+    },
+    {
+      "source": "scraperjob_sendwithretry",
+      "target": "message_client_postmessage",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/scraperJob.js",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryjob_processwithretry",
+      "target": "summary_service_processgroupsummary",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "summaryjob_runsummaryjob",
+      "target": "summary_repository_getactivegroups",
+      "relation": "calls",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/cron/summaryJob.js",
+      "source_location": "L62",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
