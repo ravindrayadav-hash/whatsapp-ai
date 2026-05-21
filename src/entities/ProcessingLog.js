@@ -1,33 +1,33 @@
-import { EntitySchema } from 'typeorm';
+import { EntitySchema } from "typeorm";
 
 export const ProcessingLog = new EntitySchema({
-  name: 'ProcessingLog',
-  tableName: 'processing_logs',
+  name: "ProcessingLog",
+  tableName: "processing_logs",
   columns: {
     id: {
-      type: 'int',
+      type: "int",
       primary: true,
       generated: true,
     },
     group_name: {
-      type: 'varchar',
+      type: "varchar",
       length: 150,
       nullable: false,
       unique: true,
     },
     last_processed_time: {
-      type: 'datetime',
+      type: "datetime",
       nullable: false,
     },
     updatedAt: {
-      type: 'timestamp',
+      type: "timestamp",
       updateDate: true,
     },
   },
   indices: [
     {
-      name: 'IDX_PROCESSING_LOG_GROUP',
-      columns: ['group_name'],
+      name: "IDX_PROCESSING_LOG_GROUP",
+      columns: ["group_name"],
       unique: true,
     },
   ],

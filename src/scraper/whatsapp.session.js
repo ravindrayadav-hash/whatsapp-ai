@@ -1,12 +1,12 @@
-import path from 'path';
-import { chromium } from 'playwright';
-import { SELECTORS } from './whatsapp.selectors.js';
+import path from "path";
+import { chromium } from "playwright";
+import { SELECTORS } from "./whatsapp.selectors.js";
 
-const SESSION_DIR  = process.env.WA_SESSION_DIR    || './wa-session';
-const HEADLESS     = process.env.WA_HEADLESS       === 'true';
-const NAV_TIMEOUT  = Number(process.env.WA_NAV_TIMEOUT_MS)  || 60_000;
+const SESSION_DIR = process.env.WA_SESSION_DIR || "./wa-session";
+const HEADLESS = process.env.WA_HEADLESS === "true";
+const NAV_TIMEOUT = Number(process.env.WA_NAV_TIMEOUT_MS) || 60_000;
 const IDLE_TIMEOUT = Number(process.env.WA_IDLE_TIMEOUT_MS) || 30_000;
-const WA_URL       = 'https://web.whatsapp.com';
+const WA_URL = "https://web.whatsapp.com";
 
 /**
  * Launches the main persistent browser context.
@@ -20,17 +20,21 @@ export async function launchMainSession() {
 
   const context = await chromium.launchPersistentContext(userDataDir, {
     headless: HEADLESS,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+    args: [
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+      "--disable-dev-shm-usage",
+    ],
     viewport: { width: 1280, height: 900 },
-    locale: 'en-US',
+    locale: "en-US",
   });
 
   // Use the first page to verify login / handle QR
-  const loginPage = context.pages()[0] || await context.newPage();
+  const loginPage = context.pages()[0] || (await context.newPage());
   loginPage.setDefaultTimeout(IDLE_TIMEOUT);
   loginPage.setDefaultNavigationTimeout(NAV_TIMEOUT);
 
-  await loginPage.goto(WA_URL, { waitUntil: 'domcontentloaded' });
+  await loginPage.goto(WA_URL, { waitUntil: "domcontentloaded" });
   await waitForLogin(loginPage);
 
   // Close the login page — each group will open its own tab
@@ -51,11 +55,13 @@ export async function openGroupPage(context) {
   page.setDefaultTimeout(IDLE_TIMEOUT);
   page.setDefaultNavigationTimeout(NAV_TIMEOUT);
 
-  await page.goto(WA_URL, { waitUntil: 'domcontentloaded' });
+  await page.goto(WA_URL, { waitUntil: "domcontentloaded" });
 
   // If WA shows "open in another window" conflict dialog, click "Use here"
   const useHereBtn = page.locator(SELECTORS.USE_HERE_BTN).first();
-  const conflictVisible = await useHereBtn.isVisible({ timeout: 5_000 }).catch(() => false);
+  const conflictVisible = await useHereBtn
+    .isVisible({ timeout: 5_000 })
+    .catch(() => false);
   if (conflictVisible) {
     console.log('[WA] Conflict dialog detected — clicking "Use here"');
     await useHereBtn.click().catch(() => {});
@@ -64,9 +70,9 @@ export async function openGroupPage(context) {
 
   // Wait for WA to be ready (no QR expected — session already authenticated)
   const searchInput = page.locator(SELECTORS.SEARCH_INPUT).first();
-  await searchInput.waitFor({ state: 'visible', timeout: NAV_TIMEOUT });
+  await searchInput.waitFor({ state: "visible", timeout: NAV_TIMEOUT });
 
-  console.log('[WA] Tab ready');
+  console.log("[WA] Tab ready");
   return page;
 }
 
@@ -87,22 +93,23 @@ export async function closeSession(context) {
 }
 
 async function waitForLogin(page) {
-  await page.waitForSelector(
-    `${SELECTORS.QR_CODE}, ${SELECTORS.MAIN_APP}`,
-    { timeout: NAV_TIMEOUT }
-  );
+  await page.waitForSelector(`${SELECTORS.QR_CODE}, ${SELECTORS.MAIN_APP}`, {
+    timeout: NAV_TIMEOUT,
+  });
 
   const isQR = await page.$(SELECTORS.QR_CODE);
   if (isQR) {
-    console.log('[WA] QR code detected — scan with your phone to log in...');
+    console.log("[WA] QR code detected — scan with your phone to log in...");
     await page.waitForSelector(SELECTORS.MAIN_APP, { timeout: NAV_TIMEOUT });
-    console.log('[WA] Login successful — session saved');
+    console.log("[WA] Login successful — session saved");
   }
 
-  await page.waitForSelector(SELECTORS.LOADING_SPINNER, {
-    state: 'hidden',
-    timeout: NAV_TIMEOUT,
-  }).catch(() => {});
+  await page
+    .waitForSelector(SELECTORS.LOADING_SPINNER, {
+      state: "hidden",
+      timeout: NAV_TIMEOUT,
+    })
+    .catch(() => {});
 
-  console.log('[WA] Session verified');
+  console.log("[WA] Session verified");
 }

@@ -1,4 +1,4 @@
-import { fetchLatestMessageTime } from './message.client.js';
+import { fetchLatestMessageTime } from "./message.client.js";
 
 /**
  * Per-group deduplication tracker.
@@ -77,14 +77,14 @@ export function filterNew(group_name, messages) {
 export function markSent(group_name, messages) {
   if (messages.length === 0) return;
 
-  let latest = '';
+  let latest = "";
 
   for (const msg of messages) {
     // Guard: a missing or non-string timestamp would corrupt the cursor and
     // cause the next tick to re-scrape the entire group history.
-    if (!msg.timestamp || typeof msg.timestamp !== 'string') {
+    if (!msg.timestamp || typeof msg.timestamp !== "string") {
       console.warn(
-        `[Dedup] markSent — message from "${msg.sender ?? 'unknown'}" has no valid timestamp; skipping cursor update for this entry`
+        `[Dedup] markSent — message from "${msg.sender ?? "unknown"}" has no valid timestamp; skipping cursor update for this entry`,
       );
       seen.add(fingerprint(group_name, msg));
       continue;
@@ -95,7 +95,7 @@ export function markSent(group_name, messages) {
   }
 
   // Advance cursor only if we found at least one valid timestamp
-  if (latest && latest > (cursors.get(group_name) ?? '')) {
+  if (latest && latest > (cursors.get(group_name) ?? "")) {
     cursors.set(group_name, latest);
   }
 }
@@ -106,8 +106,8 @@ function fingerprint(group_name, msg) {
   // produce different fingerprints. If the blob expired (image null),
   // fall back to the '[Image]' sentinel — unlikely to cause collisions
   // in practice since same-person same-minute image dupes are rare.
-  const textPart = (msg.message   || '').slice(0, 80);
-  const imgPart  = msg.image_url ? msg.image_url.slice(22, 52) : '';   // skip "data:image/jpeg;base64,"
-  const content  = textPart || imgPart || '[Image]';
+  const textPart = (msg.message || "").slice(0, 80);
+  const imgPart = msg.image_url ? msg.image_url.slice(22, 52) : ""; // skip "data:image/jpeg;base64,"
+  const content = textPart || imgPart || "[Image]";
   return `${group_name}|${msg.timestamp}|${msg.sender}|${content}`;
 }

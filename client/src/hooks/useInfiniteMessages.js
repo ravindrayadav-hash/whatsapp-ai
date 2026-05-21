@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { fetchMessages } from "../api/client.js";
 
+// Increment to force-reload from page 1 without changing group/filter params.
+
 const PAGE_SIZE = 50;
 
 /**
@@ -29,6 +31,7 @@ export function useInfiniteMessages(
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [total, setTotal] = useState(0);
+  const [reloadTick, setReloadTick] = useState(0);
 
   // Mutable refs — read synchronously inside callbacks to avoid stale closures
   const pageRef = useRef(0);
@@ -40,7 +43,8 @@ export function useInfiniteMessages(
 
   // Stable key derived from primitive values — changes only when content changes,
   // not on every render (avoids object-identity issues with inline options)
-  const filterKey = [groupName, from, to, sender, order].join("|");
+  // reloadTick is included so incrementing it resets + refetches from page 1
+  const filterKey = [groupName, from, to, sender, order, reloadTick].join("|");
 
   // ── Core fetch function ──────────────────────────────────────────────────
   const loadMore = useCallback(async () => {
@@ -138,5 +142,9 @@ export function useInfiniteMessages(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // intentionally empty — observer is stable via loadMoreRef
 
-  return { messages, loading, error, hasMore, total, sentinelRef, loadMore };
+  // Reload resets to page 1 and re-fetches by incrementing reloadTick,
+  // which changes filterKey and triggers the existing reset effect.
+  const reload = useCallback(() => setReloadTick((t) => t + 1), []);
+
+  return { messages, loading, error, hasMore, total, sentinelRef, loadMore, reload };
 }

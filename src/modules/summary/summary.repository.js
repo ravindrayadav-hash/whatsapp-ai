@@ -1,7 +1,7 @@
-import { AppDataSource } from '../../config/database.js';
-import { Message } from '../../entities/Message.js';
-import { Summary } from '../../entities/Summary.js';
-import { ProcessingLog } from '../../entities/ProcessingLog.js';
+import { AppDataSource } from "../../config/database.js";
+import { Message } from "../../entities/Message.js";
+import { Summary } from "../../entities/Summary.js";
+import { ProcessingLog } from "../../entities/ProcessingLog.js";
 
 const messageRepo = () => AppDataSource.getRepository(Message);
 const summaryRepo = () => AppDataSource.getRepository(Summary);
@@ -28,10 +28,10 @@ export async function getCursor(group_name, em) {
  */
 export async function fetchUnprocessedMessages(group_name, after) {
   return messageRepo()
-    .createQueryBuilder('m')
-    .where('m.group_name = :group_name', { group_name })
-    .andWhere('m.message_time > :after', { after })
-    .orderBy('m.message_time', 'ASC')
+    .createQueryBuilder("m")
+    .where("m.group_name = :group_name", { group_name })
+    .andWhere("m.message_time > :after", { after })
+    .orderBy("m.message_time", "ASC")
     .getMany();
 }
 
@@ -68,13 +68,13 @@ export async function saveSummaryAndAdvanceCursor({
     await em.query(
       `INSERT IGNORE INTO processing_logs (group_name, last_processed_time, updatedAt)
        VALUES (?, ?, NOW())`,
-      [group_name, new Date(0)]
+      [group_name, new Date(0)],
     );
 
     // Lock the row so concurrent summary writes for the same group queue up.
     await em.query(
       `SELECT id FROM processing_logs WHERE group_name = ? FOR UPDATE`,
-      [group_name]
+      [group_name],
     );
 
     // Save the summary
@@ -114,20 +114,20 @@ export async function saveSummaryAndAdvanceCursor({
  */
 export async function saveGroupedSummaries({ group_name, groups, newCursor }) {
   return AppDataSource.transaction(async (em) => {
-    const plRepo  = em.getRepository(ProcessingLog);
+    const plRepo = em.getRepository(ProcessingLog);
     const sumRepo = em.getRepository(Summary);
 
     // Guarantee the row exists before locking (same fix as saveSummaryAndAdvanceCursor).
     await em.query(
       `INSERT IGNORE INTO processing_logs (group_name, last_processed_time, updatedAt)
        VALUES (?, ?, NOW())`,
-      [group_name, new Date(0)]
+      [group_name, new Date(0)],
     );
 
     // Prevent concurrent writes for the same group
     await em.query(
       `SELECT id FROM processing_logs WHERE group_name = ? FOR UPDATE`,
-      [group_name]
+      [group_name],
     );
 
     const saved = [];
@@ -135,17 +135,18 @@ export async function saveGroupedSummaries({ group_name, groups, newCursor }) {
     for (const { topic, requirements } of groups) {
       const allReqs = Array.isArray(requirements) ? requirements : [];
 
-      const summary_text = allReqs.length > 0
-        ? allReqs.map((r, i) => `${i + 1}. ${r.title}`).join('; ')
-        : 'No requirements identified.';
+      const summary_text =
+        allReqs.length > 0
+          ? allReqs.map((r, i) => `${i + 1}. ${r.title}`).join("; ")
+          : "No requirements identified.";
 
       const row = sumRepo.create({
         group_name,
         topic,
         summary_text,
         requirements: allReqs,
-        issues:        allReqs.flatMap((r) => r.issues        ?? []),
-        action_items:  allReqs.flatMap((r) => r.action_items  ?? []),
+        issues: allReqs.flatMap((r) => r.issues ?? []),
+        action_items: allReqs.flatMap((r) => r.action_items ?? []),
       });
 
       saved.push(await sumRepo.save(row));
@@ -167,8 +168,8 @@ export async function saveGroupedSummaries({ group_name, groups, newCursor }) {
  */
 export async function getActiveGroups() {
   const rows = await messageRepo()
-    .createQueryBuilder('m')
-    .select('DISTINCT m.group_name', 'group_name')
+    .createQueryBuilder("m")
+    .select("DISTINCT m.group_name", "group_name")
     .getRawMany();
   return rows.map((r) => r.group_name);
 }
@@ -182,15 +183,18 @@ export async function getActiveGroups() {
  * @param {Date}   [opts.to]    inclusive upper bound on createdAt
  * @returns {Promise<object[]>}
  */
-export async function getSummariesByGroup(group_name, { limit = 10, from, to } = {}) {
+export async function getSummariesByGroup(
+  group_name,
+  { limit = 10, from, to } = {},
+) {
   const qb = summaryRepo()
-    .createQueryBuilder('s')
-    .where('s.group_name = :group_name', { group_name })
-    .orderBy('s.createdAt', 'DESC')
+    .createQueryBuilder("s")
+    .where("s.group_name = :group_name", { group_name })
+    .orderBy("s.createdAt", "DESC")
     .limit(limit);
 
-  if (from) qb.andWhere('s.createdAt >= :from', { from });
-  if (to)   qb.andWhere('s.createdAt <= :to',   { to });
+  if (from) qb.andWhere("s.createdAt >= :from", { from });
+  if (to) qb.andWhere("s.createdAt <= :to", { to });
 
   return qb.getMany();
 }

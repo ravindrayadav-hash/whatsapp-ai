@@ -1,5 +1,12 @@
-import { saveMessage, getMessagesByGroup, getSendersByGroup } from './message.service.js';
-import { validateCreateMessage, validateGetMessages } from './message.validator.js';
+import {
+  saveMessage,
+  getMessagesByGroup,
+  getSendersByGroup,
+} from "./message.service.js";
+import {
+  validateCreateMessage,
+  validateGetMessages,
+} from "./message.validator.js";
 
 /**
  * POST /api/messages
@@ -20,7 +27,7 @@ export async function createMessage(req, res, next) {
     });
   } catch (err) {
     // Duplicate key — unique constraint violation (ER_DUP_ENTRY)
-    if (err.code === 'ER_DUP_ENTRY' || err.message?.includes('UQ_MESSAGE')) {
+    if (err.code === "ER_DUP_ENTRY" || err.message?.includes("UQ_MESSAGE")) {
       return res.status(409).json({ success: false, duplicate: true });
     }
     next(err);
@@ -33,7 +40,10 @@ export async function createMessage(req, res, next) {
 export async function fetchSenders(req, res, next) {
   try {
     const { group_name } = req.query;
-    if (!group_name) return res.status(400).json({ success: false, error: 'group_name required' });
+    if (!group_name)
+      return res
+        .status(400)
+        .json({ success: false, error: "group_name required" });
     const senders = await getSendersByGroup(group_name);
     return res.status(200).json({ success: true, data: senders });
   } catch (err) {
@@ -51,21 +61,43 @@ export async function fetchMessages(req, res, next) {
       return res.status(400).json({ success: false, errors });
     }
 
-    const { group_name, from, to, limit, page, order, sender, cursor_id, cursor_time } = req.query;
-    const result = await getMessagesByGroup({ group_name, from, to, limit, page, order, sender, cursor_id, cursor_time });
+    const {
+      group_name,
+      from,
+      to,
+      limit,
+      page,
+      order,
+      sender,
+      cursor_id,
+      cursor_time,
+    } = req.query;
+    const result = await getMessagesByGroup({
+      group_name,
+      from,
+      to,
+      limit,
+      page,
+      order,
+      sender,
+      cursor_id,
+      cursor_time,
+    });
 
     return res.status(200).json({
-      success:    true,
+      success: true,
       group_name,
-      total:      result.total,
-      page:       result.page,
-      limit:      result.limit,
-      hasMore:    result.hasMore,
-      count:      result.data.length,
-      data:       result.data,
+      total: result.total,
+      page: result.page,
+      limit: result.limit,
+      hasMore: result.hasMore,
+      count: result.data.length,
+      data: result.data,
       // Cursor for next page — undefined in offset mode, null in cursor mode
-      ...(result.nextCursorId   != null && { nextCursorId:   result.nextCursorId   }),
-      ...(result.nextCursorTime != null && { nextCursorTime: result.nextCursorTime }),
+      ...(result.nextCursorId != null && { nextCursorId: result.nextCursorId }),
+      ...(result.nextCursorTime != null && {
+        nextCursorTime: result.nextCursorTime,
+      }),
     });
   } catch (err) {
     next(err);

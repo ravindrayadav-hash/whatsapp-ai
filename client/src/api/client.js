@@ -1,18 +1,31 @@
-const BASE = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL}/api` : "/api";
+// API client — reads the JWT from localStorage (set by AuthContext) and sends
+// it as a Bearer token on every request.  Falls back to VITE_API_TOKEN for
+// backwards compatibility with the scraper / static token flow.
 
-// Attach the Bearer token when VITE_API_TOKEN is set in the client env.
-// In local dev without auth (ADMIN_TOKEN not set on server), this header
-// is simply ignored — no breakage.
+import { getToken } from "../context/AuthContext.jsx";
+
+const BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : "/api";
+
 function authHeader() {
-  const token = import.meta.env.VITE_API_TOKEN;
-  return token ? { Authorization: `Bearer ${token}` } : {};
+  // Prefer the JWT stored by the logged-in user; fall back to static env token
+  const jwt = getToken();
+  if (jwt) return { Authorization: `Bearer ${jwt}` };
+  const staticToken = import.meta.env.VITE_API_TOKEN;
+  return staticToken ? { Authorization: `Bearer ${staticToken}` } : {};
 }
 
-async function request(path) {
-  const res = await fetch(`${BASE}${path}`, { headers: authHeader() });
+async function request(path, options = {}) {
+  const res = await fetch(`${BASE}${path}`, {
+    ...options,
+    headers: { ...authHeader(), ...(options.headers ?? {}) },
+  });
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    throw new Error(body.message || body.error || `API error ${res.status}: ${path}`);
+    throw new Error(
+      body.message || body.error || `API error ${res.status}: ${path}`,
+    );
   }
   return res.json();
 }
@@ -85,17 +98,37 @@ export async function fetchAIHistory({
   );
 }
 
+export async function searchJiraIssues(q) {
+  return request(`/jira/search${qs({ q })}`);
+}
+
+export async function fetchJiraIssue(issueKey) {
+  return request(`/jira/issue/${encodeURIComponent(issueKey)}`);
+}
+
+export async function createJiraIssue({ projectKey, summary, description, issueType, priority, status }) {
+  const res = await fetch(`${BASE}/jira/issue`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...authHeader() },
+    body: JSON.stringify({ projectKey, summary, description, issueType, priority, status }),
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || body.message || `Jira create failed (${res.status})`);
+  }
+  return res.json();
+}
+
 export async function triggerSummary(group_name) {
   const res = await fetch(
     `${BASE}/summaries/process/${encodeURIComponent(group_name)}`,
-    {
-      method: "POST",
-      headers: authHeader(),
-    },
+    { method: "POST", headers: authHeader() },
   );
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    throw new Error(body.message || body.error || `Trigger failed (${res.status})`);
+    throw new Error(
+      body.message || body.error || `Trigger failed (${res.status})`,
+    );
   }
   return res.json();
 }

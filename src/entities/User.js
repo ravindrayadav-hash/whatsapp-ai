@@ -9,20 +9,32 @@ export const User = new EntitySchema({
       primary: true,
       generated: true,
     },
-    name: {
+    username: {
       type: 'varchar',
       length: 100,
-      nullable: false,
-    },
-    phone: {
-      type: 'varchar',
-      length: 20,
       unique: true,
       nullable: false,
     },
     email: {
       type: 'varchar',
       length: 150,
+      unique: true,
+      nullable: false,
+    },
+    password: {
+      type: 'varchar',
+      length: 255,
+      nullable: false,
+    },
+    // Legacy field kept nullable so existing rows aren't broken
+    name: {
+      type: 'varchar',
+      length: 100,
+      nullable: true,
+    },
+    phone: {
+      type: 'varchar',
+      length: 20,
       unique: true,
       nullable: true,
     },

@@ -3,7 +3,7 @@
  * Uses Node 18+ built-in fetch — no extra dependency needed.
  */
 
-const BASE_URL = process.env.API_BASE_URL || "http://localhost:3001";
+const BASE_URL = process.env.API_BASE_URL || "http://localhost:3002";
 
 // Internal auth header — same token the UI uses.
 // Empty string when ADMIN_TOKEN is not set (local dev without auth).

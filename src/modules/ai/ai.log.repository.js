@@ -1,14 +1,24 @@
-import { AppDataSource } from '../../config/database.js';
-import { AiLog } from '../../entities/AiLog.js';
+import { AppDataSource } from "../../config/database.js";
+import { AiLog } from "../../entities/AiLog.js";
 
 const repo = () => AppDataSource.getRepository(AiLog);
 
 /**
  * Persists one AI interaction log row.
  */
-export async function saveAiLog({ action_type, messages, response, group_name }) {
+export async function saveAiLog({
+  action_type,
+  messages,
+  response,
+  group_name,
+}) {
   return repo().save(
-    repo().create({ action_type, messages, response, group_name: group_name || null })
+    repo().create({
+      action_type,
+      messages,
+      response,
+      group_name: group_name || null,
+    }),
   );
 }
 
@@ -24,31 +34,38 @@ export async function saveAiLog({ action_type, messages, response, group_name })
  * @param {number} [opts.limit=25]
  * @returns {Promise<{ data, total, page, limit, hasMore }>}
  */
-export async function getAiLogs({ group_name, action_type, from, to, page = 1, limit = 25 } = {}) {
+export async function getAiLogs({
+  group_name,
+  action_type,
+  from,
+  to,
+  page = 1,
+  limit = 25,
+} = {}) {
   const pageSize = Math.min(Math.max(Number(limit) || 25, 1), 100);
-  const pageNum  = Math.max(Number(page) || 1, 1);
-  const offset   = (pageNum - 1) * pageSize;
+  const pageNum = Math.max(Number(page) || 1, 1);
+  const offset = (pageNum - 1) * pageSize;
 
   const qb = repo()
-    .createQueryBuilder('l')
-    .orderBy('l.created_at', 'DESC')
+    .createQueryBuilder("l")
+    .orderBy("l.created_at", "DESC")
     .limit(pageSize)
     .offset(offset);
 
   if (group_name) {
-    qb.andWhere('l.group_name = :group_name', { group_name });
+    qb.andWhere("l.group_name = :group_name", { group_name });
   }
 
   if (action_type) {
-    qb.andWhere('l.action_type = :action_type', { action_type });
+    qb.andWhere("l.action_type = :action_type", { action_type });
   }
 
   if (from) {
-    qb.andWhere('DATE(l.created_at) >= :from', { from });
+    qb.andWhere("DATE(l.created_at) >= :from", { from });
   }
 
   if (to) {
-    qb.andWhere('DATE(l.created_at) <= :to', { to });
+    qb.andWhere("DATE(l.created_at) <= :to", { to });
   }
 
   const [data, total] = await qb.getManyAndCount();
@@ -56,8 +73,8 @@ export async function getAiLogs({ group_name, action_type, from, to, page = 1, l
   return {
     data,
     total,
-    page:    pageNum,
-    limit:   pageSize,
+    page: pageNum,
+    limit: pageSize,
     hasMore: offset + data.length < total,
   };
 }

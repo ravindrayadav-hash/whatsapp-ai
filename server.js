@@ -5,7 +5,7 @@ import { startSummaryJob } from "./src/cron/summaryJob.js";
 import { startScraperJob } from "./src/cron/scraperJob.js";
 import { startCleanupJob } from "./src/cron/cleanupJob.js";
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3002;
 
 AppDataSource.initialize()
   .then(() => {

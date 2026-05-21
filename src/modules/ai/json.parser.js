@@ -1,23 +1,31 @@
-import { ACTIONS } from './prompt.builder.js';
+import { ACTIONS } from "./prompt.builder.js";
 
 // ── Shared utilities ───────────────────────────────────────────────────────
 
-const VALID_PRIORITIES     = new Set(['High', 'Medium', 'Low']);
-const VALID_JIRA_TYPES     = new Set(['Story', 'Bug', 'Task', 'Improvement']);
-const VALID_JIRA_PRIORITIES = new Set(['Highest', 'High', 'Medium', 'Low', 'Lowest']);
-const VALID_TONES          = new Set(['Formal', 'Friendly', 'Direct', 'Empathetic']);
-const VALID_CONFIDENCE     = new Set(['High', 'Medium', 'Low']);
+const VALID_PRIORITIES = new Set(["High", "Medium", "Low"]);
+const VALID_JIRA_TYPES = new Set(["Story", "Bug", "Task", "Improvement"]);
+const VALID_JIRA_PRIORITIES = new Set([
+  "Highest",
+  "High",
+  "Medium",
+  "Low",
+  "Lowest",
+]);
+const VALID_TONES = new Set(["Formal", "Friendly", "Direct", "Empathetic"]);
+const VALID_CONFIDENCE = new Set(["High", "Medium", "Low"]);
 
 function stripCodeFences(text) {
   return text
-    .replace(/^```(?:json)?\s*/i, '')
-    .replace(/\s*```$/, '')
+    .replace(/^```(?:json)?\s*/i, "")
+    .replace(/\s*```$/, "")
     .trim();
 }
 
 function toStringArray(value) {
   if (!Array.isArray(value)) return [];
-  return value.map((item) => (typeof item === 'string' ? item : JSON.stringify(item)));
+  return value.map((item) =>
+    typeof item === "string" ? item : JSON.stringify(item),
+  );
 }
 
 /**
@@ -31,9 +39,9 @@ function parseJSON(rawText) {
   // Reject oversized responses before attempting any parsing.
   // A legitimate Gemini JSON response is never this large; anything bigger
   // is a hallucination or a model error that shouldn't block the event loop.
-  if (Buffer.byteLength(rawText, 'utf8') > MAX_RESPONSE_BYTES) {
+  if (Buffer.byteLength(rawText, "utf8") > MAX_RESPONSE_BYTES) {
     throw new Error(
-      `AI response too large (${Math.round(Buffer.byteLength(rawText, 'utf8') / 1024)} KB > ${MAX_RESPONSE_BYTES / 1024} KB limit)`
+      `AI response too large (${Math.round(Buffer.byteLength(rawText, "utf8") / 1024)} KB > ${MAX_RESPONSE_BYTES / 1024} KB limit)`,
     );
   }
 
@@ -43,22 +51,24 @@ function parseJSON(rawText) {
     return JSON.parse(cleaned);
   } catch {
     // Fallback: extract first complete JSON object
-    const start = cleaned.indexOf('{');
-    const end   = cleaned.lastIndexOf('}');
+    const start = cleaned.indexOf("{");
+    const end = cleaned.lastIndexOf("}");
     if (start !== -1 && end > start) {
       try {
         return JSON.parse(cleaned.slice(start, end + 1));
-      } catch { /* fall through */ }
+      } catch {
+        /* fall through */
+      }
     }
     throw new Error(
-      `AI response is not valid JSON.\nRaw (first 500 chars):\n${rawText.slice(0, 500)}`
+      `AI response is not valid JSON.\nRaw (first 500 chars):\n${rawText.slice(0, 500)}`,
     );
   }
 }
 
 function assertObject(parsed) {
-  if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
-    throw new Error('AI response JSON is not an object');
+  if (typeof parsed !== "object" || parsed === null || Array.isArray(parsed)) {
+    throw new Error("AI response JSON is not an object");
   }
 }
 
@@ -73,17 +83,22 @@ function parseSummarize(rawText) {
   }
 
   const requirements = parsed.requirements.map((req, i) => {
-    if (typeof req !== 'object' || req === null) {
+    if (typeof req !== "object" || req === null) {
       throw new Error(`requirements[${i}] must be an object`);
     }
-    const rawPriority = typeof req.priority === 'string' ? req.priority.trim() : 'Medium';
+    const rawPriority =
+      typeof req.priority === "string" ? req.priority.trim() : "Medium";
     return {
-      title:        typeof req.title === 'string'       ? req.title.trim()       : `Requirement ${i + 1}`,
-      description:  typeof req.description === 'string' ? req.description.trim() : '',
-      messages:     toStringArray(req.messages),
-      issues:       toStringArray(req.issues),
+      title:
+        typeof req.title === "string"
+          ? req.title.trim()
+          : `Requirement ${i + 1}`,
+      description:
+        typeof req.description === "string" ? req.description.trim() : "",
+      messages: toStringArray(req.messages),
+      issues: toStringArray(req.issues),
       action_items: toStringArray(req.action_items),
-      priority:     VALID_PRIORITIES.has(rawPriority) ? rawPriority : 'Medium',
+      priority: VALID_PRIORITIES.has(rawPriority) ? rawPriority : "Medium",
     };
   });
 
@@ -98,20 +113,28 @@ function parseExplain(rawText) {
   const image_insights = Array.isArray(parsed.image_insights)
     ? parsed.image_insights
         .map((entry) => ({
-          sender:     typeof entry?.sender     === 'string' ? entry.sender.trim()     : 'unknown',
-          what_shown: typeof entry?.what_shown === 'string' ? entry.what_shown.trim() : '',
-          connection: typeof entry?.connection === 'string' ? entry.connection.trim() : '',
+          sender:
+            typeof entry?.sender === "string" ? entry.sender.trim() : "unknown",
+          what_shown:
+            typeof entry?.what_shown === "string"
+              ? entry.what_shown.trim()
+              : "",
+          connection:
+            typeof entry?.connection === "string"
+              ? entry.connection.trim()
+              : "",
         }))
         .filter((e) => e.what_shown || e.connection)
     : [];
 
   return {
-    explanation:    typeof parsed.explanation === 'string' ? parsed.explanation.trim() : '',
-    key_points:     toStringArray(parsed.key_points),
-    context:        typeof parsed.context     === 'string' ? parsed.context.trim()     : '',
+    explanation:
+      typeof parsed.explanation === "string" ? parsed.explanation.trim() : "",
+    key_points: toStringArray(parsed.key_points),
+    context: typeof parsed.context === "string" ? parsed.context.trim() : "",
     image_insights,
-    participants:   toStringArray(parsed.participants),
-    outcome:        typeof parsed.outcome     === 'string' ? parsed.outcome.trim()     : null,
+    participants: toStringArray(parsed.participants),
+    outcome: typeof parsed.outcome === "string" ? parsed.outcome.trim() : null,
   };
 }
 
@@ -120,14 +143,19 @@ function parseReply(rawText) {
   assertObject(parsed);
 
   const replies = Array.isArray(parsed.suggested_replies)
-    ? parsed.suggested_replies.map((r) => ({
-        tone:    VALID_TONES.has(r?.tone) ? r.tone : 'Friendly',
-        message: typeof r?.message === 'string' ? r.message.trim() : '',
-      })).filter((r) => r.message)
+    ? parsed.suggested_replies
+        .map((r) => ({
+          tone: VALID_TONES.has(r?.tone) ? r.tone : "Friendly",
+          message: typeof r?.message === "string" ? r.message.trim() : "",
+        }))
+        .filter((r) => r.message)
     : [];
 
   return {
-    context_summary:   typeof parsed.context_summary === 'string' ? parsed.context_summary.trim() : '',
+    context_summary:
+      typeof parsed.context_summary === "string"
+        ? parsed.context_summary.trim()
+        : "",
     suggested_replies: replies,
   };
 }
@@ -141,16 +169,18 @@ function parseJira(rawText) {
   }
 
   const tickets = parsed.tickets.map((t, i) => {
-    const rawType     = typeof t?.type === 'string'     ? t.type.trim()     : 'Task';
-    const rawPriority = typeof t?.priority === 'string' ? t.priority.trim() : 'Medium';
+    const rawType = typeof t?.type === "string" ? t.type.trim() : "Task";
+    const rawPriority =
+      typeof t?.priority === "string" ? t.priority.trim() : "Medium";
     return {
-      title:               typeof t?.title === 'string'       ? t.title.trim()       : `Ticket ${i + 1}`,
-      type:                VALID_JIRA_TYPES.has(rawType)       ? rawType              : 'Task',
-      priority:            VALID_JIRA_PRIORITIES.has(rawPriority) ? rawPriority       : 'Medium',
-      description:         typeof t?.description === 'string'  ? t.description.trim() : '',
+      title: typeof t?.title === "string" ? t.title.trim() : `Ticket ${i + 1}`,
+      type: VALID_JIRA_TYPES.has(rawType) ? rawType : "Task",
+      priority: VALID_JIRA_PRIORITIES.has(rawPriority) ? rawPriority : "Medium",
+      description:
+        typeof t?.description === "string" ? t.description.trim() : "",
       acceptance_criteria: toStringArray(t?.acceptance_criteria),
-      labels:              toStringArray(t?.labels),
-      source_messages:     toStringArray(t?.source_messages),
+      labels: toStringArray(t?.labels),
+      source_messages: toStringArray(t?.source_messages),
     };
   });
 
@@ -167,7 +197,7 @@ function parseGroup(rawText) {
 
   const groups = parsed.groups
     .map((g, i) => ({
-      title:    typeof g?.title === 'string' ? g.title.trim() : `Group ${i + 1}`,
+      title: typeof g?.title === "string" ? g.title.trim() : `Group ${i + 1}`,
       messages: toStringArray(g?.messages),
     }))
     .filter((g) => g.messages.length > 0);
@@ -179,12 +209,13 @@ function parseChat(rawText) {
   const parsed = parseJSON(rawText);
   assertObject(parsed);
 
-  const rawConf = typeof parsed.confidence === 'string' ? parsed.confidence.trim() : 'Medium';
+  const rawConf =
+    typeof parsed.confidence === "string" ? parsed.confidence.trim() : "Medium";
   return {
-    answer:     typeof parsed.answer === 'string' ? parsed.answer.trim() : '',
+    answer: typeof parsed.answer === "string" ? parsed.answer.trim() : "",
     references: toStringArray(parsed.references),
-    confidence: VALID_CONFIDENCE.has(rawConf) ? rawConf : 'Medium',
-    note:       typeof parsed.note === 'string' ? parsed.note.trim() : null,
+    confidence: VALID_CONFIDENCE.has(rawConf) ? rawConf : "Medium",
+    note: typeof parsed.note === "string" ? parsed.note.trim() : null,
   };
 }
 
@@ -192,11 +223,11 @@ function parseChat(rawText) {
 
 const PARSERS = {
   [ACTIONS.summarize]: parseSummarize,
-  [ACTIONS.explain]:   parseExplain,
-  [ACTIONS.reply]:     parseReply,
-  [ACTIONS.jira]:      parseJira,
-  [ACTIONS.group]:     parseGroup,
-  [ACTIONS.chat]:      parseChat,
+  [ACTIONS.explain]: parseExplain,
+  [ACTIONS.reply]: parseReply,
+  [ACTIONS.jira]: parseJira,
+  [ACTIONS.group]: parseGroup,
+  [ACTIONS.chat]: parseChat,
 };
 
 /**

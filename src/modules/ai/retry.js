@@ -10,12 +10,13 @@ const RETRYABLE_STATUS_CODES = new Set([429, 500, 503]);
  * @returns {boolean}
  */
 function defaultIsRetryable(err) {
-  const statusCode = err.status ?? err.statusCode ?? err?.errorDetails?.[0]?.status;
+  const statusCode =
+    err.status ?? err.statusCode ?? err?.errorDetails?.[0]?.status;
   return (
     RETRYABLE_STATUS_CODES.has(statusCode) ||
-    !!err.message?.includes('quota') ||
-    !!err.message?.includes('overloaded') ||
-    !!err.message?.includes('rate limit')
+    !!err.message?.includes("quota") ||
+    !!err.message?.includes("overloaded") ||
+    !!err.message?.includes("rate limit")
   );
 }
 
@@ -34,7 +35,16 @@ function defaultIsRetryable(err) {
  *   When omitted, only transient API errors (429 / 500 / 503) are retried.
  * @returns {Promise<T>}
  */
-export async function withRetry(fn, { maxRetries = 3, baseDelayMs = 1000, maxTotalMs = 30_000, label = 'operation', isRetryable = defaultIsRetryable } = {}) {
+export async function withRetry(
+  fn,
+  {
+    maxRetries = 3,
+    baseDelayMs = 1000,
+    maxTotalMs = 30_000,
+    label = "operation",
+    isRetryable = defaultIsRetryable,
+  } = {},
+) {
   let lastError;
   const deadline = Date.now() + maxTotalMs;
 
@@ -47,14 +57,18 @@ export async function withRetry(fn, { maxRetries = 3, baseDelayMs = 1000, maxTot
       const timeLeft = deadline - Date.now();
       if (!isRetryable(err) || attempt === maxRetries || timeLeft <= 0) {
         if (timeLeft <= 0) {
-          console.warn(`[Retry] ${label} — wall-clock deadline exceeded after ${attempt} attempt(s). Giving up.`);
+          console.warn(
+            `[Retry] ${label} — wall-clock deadline exceeded after ${attempt} attempt(s). Giving up.`,
+          );
         }
         break;
       }
 
       // Exponential backoff: 1s → 2s → 4s, capped to remaining time
       const delay = Math.min(baseDelayMs * 2 ** (attempt - 1), timeLeft);
-      console.warn(`[Retry] ${label} failed (attempt ${attempt}/${maxRetries}). Retrying in ${delay}ms. Error: ${err.message}`);
+      console.warn(
+        `[Retry] ${label} failed (attempt ${attempt}/${maxRetries}). Retrying in ${delay}ms. Error: ${err.message}`,
+      );
       await sleep(delay);
     }
   }

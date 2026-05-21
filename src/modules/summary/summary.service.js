@@ -1,11 +1,11 @@
-import { generateAIResponse } from '../ai/gemini.service.js';
-import { runAIAction } from '../ai/ai.service.js';
+import { generateAIResponse } from "../ai/gemini.service.js";
+import { runAIAction } from "../ai/ai.service.js";
 import {
   getCursor,
   fetchUnprocessedMessages,
   saveGroupedSummaries,
   getSummariesByGroup,
-} from './summary.repository.js';
+} from "./summary.repository.js";
 
 /**
  * In-memory lock — prevents two concurrent calls from processing the same
@@ -28,7 +28,7 @@ const CHUNK_SIZE = () => Number(process.env.SUMMARY_CHUNK_SIZE) || 150;
  * @returns {Promise<Array<{ topic: string, message_indices: number[] }>>}
  */
 async function groupChunk(chunk, chunkTag) {
-  const result = await generateAIResponse(chunk, 'group');
+  const result = await generateAIResponse(chunk, "group");
   const groups = result.groups ?? [];
 
   if (groups.length === 0) {
@@ -49,7 +49,7 @@ async function groupChunk(chunk, chunkTag) {
  * @returns {Promise<object[]>} requirements array
  */
 async function summarizeGroup(messages) {
-  const { result } = await runAIAction({ messages, action: 'summarize' });
+  const { result } = await runAIAction({ messages, action: "summarize" });
   return result.requirements ?? [];
 }
 
@@ -80,25 +80,28 @@ async function summarizeGroup(messages) {
 export async function processGroupSummary(group_name) {
   // ── Duplicate-processing guard ────────────────────────────────────────────
   if (processingLock.has(group_name)) {
-    return { status: 'skipped', reason: 'Processing already in progress for this group' };
+    return {
+      status: "skipped",
+      reason: "Processing already in progress for this group",
+    };
   }
   processingLock.add(group_name);
 
   try {
     // ── 1. Read cursor ───────────────────────────────────────────────────────
-    const cursor   = await getCursor(group_name);
+    const cursor = await getCursor(group_name);
     const messages = await fetchUnprocessedMessages(group_name, cursor);
 
     if (messages.length === 0) {
-      return { status: 'skipped', reason: 'No new messages to process' };
+      return { status: "skipped", reason: "No new messages to process" };
     }
 
-    const chunkSize   = CHUNK_SIZE();
+    const chunkSize = CHUNK_SIZE();
     const totalChunks = Math.ceil(messages.length / chunkSize);
 
     console.log(
       `[Summary] ${group_name}: ${messages.length} messages → ` +
-      `${totalChunks} chunk(s) of ${chunkSize}`
+        `${totalChunks} chunk(s) of ${chunkSize}`,
     );
 
     // ── 2. Phase 1 + 2: group then summarize, chunk by chunk ─────────────────
@@ -108,9 +111,9 @@ export async function processGroupSummary(group_name) {
     const allGroupSummaries = [];
 
     for (let i = 0; i < messages.length; i += chunkSize) {
-      const chunk    = messages.slice(i, i + chunkSize);
+      const chunk = messages.slice(i, i + chunkSize);
       const chunkNum = Math.floor(i / chunkSize) + 1;
-      const tag      = `chunk ${chunkNum}/${totalChunks}`;
+      const tag = `chunk ${chunkNum}/${totalChunks}`;
 
       // Phase 1: group
       const groups = await groupChunk(chunk, tag);
@@ -128,7 +131,10 @@ export async function processGroupSummary(group_name) {
     }
 
     if (allGroupSummaries.length === 0) {
-      return { status: 'skipped', reason: 'No substantive content found after grouping' };
+      return {
+        status: "skipped",
+        reason: "No substantive content found after grouping",
+      };
     }
 
     // ── 3. Persist all groups + advance cursor in one transaction ────────────
@@ -136,20 +142,19 @@ export async function processGroupSummary(group_name) {
 
     await saveGroupedSummaries({
       group_name,
-      groups:    allGroupSummaries,
+      groups: allGroupSummaries,
       newCursor: new Date(newCursor),
     });
 
     console.log(
-      `[Summary] ${group_name}: saved ${allGroupSummaries.length} group summary(ies)`
+      `[Summary] ${group_name}: saved ${allGroupSummaries.length} group summary(ies)`,
     );
 
     return {
-      status:       'processed',
+      status: "processed",
       messageCount: messages.length,
-      groupCount:   allGroupSummaries.length,
+      groupCount: allGroupSummaries.length,
     };
-
   } finally {
     processingLock.delete(group_name);
   }

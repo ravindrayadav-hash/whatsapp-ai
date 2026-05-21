@@ -30,9 +30,8 @@ IMAGE RULES (apply when images are attached):
 //   injectExtra  — (optional) how extraInput is used in this action
 
 export const ACTION_PROMPTS = {
-
   summarize: {
-    role: 'Act as a senior business analyst.',
+    role: "Act as a senior business analyst.",
     task: `Group messages into logical requirement topics and produce structured output.
 Step 1 — Group messages by topic: each group = ONE requirement or discussion thread.
 Step 2 — For each group produce a structured entry.
@@ -50,16 +49,16 @@ Step 3 — If a message has an attached image, extract its content and include v
   ]
 }`,
     rules: [
-      'Do NOT merge unrelated discussions into one requirement.',
+      "Do NOT merge unrelated discussions into one requirement.",
       'Ignore filler messages: "ok", "thanks", "noted", "👍".',
       '"priority" must be exactly one of: High, Medium, Low.',
-      'Empty arrays [] are allowed when a field has no data.',
+      "Empty arrays [] are allowed when a field has no data.",
       'For image messages: describe what is visible in the screenshot inside "description" and list UI issues in "issues".',
     ],
   },
 
   explain: {
-    role: 'Act as a technical analyst who explains team conversations in plain English.',
+    role: "Act as a technical analyst who explains team conversations in plain English.",
     task: `Read the conversation and produce a clear, structured explanation of what was discussed.
 
 If any message contains an image:
@@ -81,7 +80,7 @@ If any message contains an image:
   "outcome":        "What was decided or concluded — null if no clear outcome"
 }`,
     rules: [
-      'Use plain, jargon-free language.',
+      "Use plain, jargon-free language.",
       '"key_points" must be concrete facts from the conversation, not vague observations.',
       '"outcome" is null when no decision or conclusion was reached.',
       '"image_insights" must be an empty array [] when no images are present.',
@@ -92,11 +91,12 @@ If any message contains an image:
   },
 
   reply: {
-    role: 'Act as a professional communication assistant.',
-    task: 'Analyse the latest messages and suggest ready-to-send WhatsApp replies.',
-    injectExtra: (extra) => extra
-      ? `REPLY INTENT: The user wants to reply with this goal: "${extra.trim()}"`
-      : 'Suggest general professional reply options for the latest messages.',
+    role: "Act as a professional communication assistant.",
+    task: "Analyse the latest messages and suggest ready-to-send WhatsApp replies.",
+    injectExtra: (extra) =>
+      extra
+        ? `REPLY INTENT: The user wants to reply with this goal: "${extra.trim()}"`
+        : "Suggest general professional reply options for the latest messages.",
     schema: `{
   "context_summary":   "One sentence: what the latest messages are about",
   "suggested_replies": [
@@ -107,14 +107,14 @@ If any message contains an image:
   ]
 }`,
     rules: [
-      'Provide exactly 3 suggested replies, each with a different tone.',
-      'Every reply must be complete and sendable — no [placeholder] tokens.',
-      'Keep replies concise and appropriate for WhatsApp (under 3 sentences).',
+      "Provide exactly 3 suggested replies, each with a different tone.",
+      "Every reply must be complete and sendable — no [placeholder] tokens.",
+      "Keep replies concise and appropriate for WhatsApp (under 3 sentences).",
     ],
   },
 
   jira: {
-    role: 'Act as a senior project manager who extracts Jira tickets from team conversations.',
+    role: "Act as a senior project manager who extracts Jira tickets from team conversations.",
     task: `Extract every actionable task, bug, or feature request and format as Jira tickets.
 If a message contains an image (screenshot, UI capture, error screen):
 - Describe the visible UI, layout, error message, or data in the ticket "description".
@@ -134,9 +134,9 @@ If a message contains an image (screenshot, UI capture, error screen):
   ]
 }`,
     rules: [
-      'Only create tickets for actionable items — skip small talk.',
+      "Only create tickets for actionable items — skip small talk.",
       '"title" must start with a verb.',
-      'Each ticket must be fully self-contained.',
+      "Each ticket must be fully self-contained.",
       '"acceptance_criteria" requires at least one entry per ticket.',
       '"type" must be exactly one of: Story, Bug, Task, Improvement.',
       '"priority" must be exactly one of: Highest, High, Medium, Low, Lowest.',
@@ -145,8 +145,8 @@ If a message contains an image (screenshot, UI capture, error screen):
   },
 
   group: {
-    role: 'Act as an expert conversation analyst.',
-    task: 'Cluster the conversation messages into discrete groups by requirement or topic. Each group must represent ONE coherent discussion thread, feature request, bug report, or decision.',
+    role: "Act as an expert conversation analyst.",
+    task: "Cluster the conversation messages into discrete groups by requirement or topic. Each group must represent ONE coherent discussion thread, feature request, bug report, or decision.",
     schema: `{
   "groups": [
     {
@@ -156,21 +156,23 @@ If a message contains an image (screenshot, UI capture, error screen):
   ]
 }`,
     rules: [
-      'Every substantive message must appear in exactly one group.',
+      "Every substantive message must appear in exactly one group.",
       'Ignore filler messages — "ok", "thanks", "noted", "👍" — omit them from all groups.',
       '"messages" must contain the exact message text as it appears in the transcript.',
       '"messages" must be a non-empty array of strings.',
-      'Produce at least one group if there is any substantive content.',
+      "Produce at least one group if there is any substantive content.",
       '"title" must be a concise noun phrase — no verbs, no punctuation at the end.',
     ],
   },
 
   chat: {
-    role: 'Act as an expert analyst who has read this conversation thoroughly.',
-    task: 'Answer the user\'s question using only information present in the conversation.',
+    role: "Act as an expert analyst who has read this conversation thoroughly.",
+    task: "Answer the user's question using only information present in the conversation.",
     injectExtra: (extra) => {
       if (!extra || !extra.trim()) {
-        throw new Error('"chat" action requires extraInput — the user\'s question');
+        throw new Error(
+          '"chat" action requires extraInput — the user\'s question',
+        );
       }
       return `USER QUESTION: ${extra.trim()}`;
     },
@@ -181,37 +183,46 @@ If a message contains an image (screenshot, UI capture, error screen):
   "note":       "Caveat or limitation about this answer — null if none"
 }`,
     rules: [
-      'Answer using ONLY information from the conversation — do not invent facts.',
-      'If the conversation lacks enough data, set confidence to Low and explain in note.',
+      "Answer using ONLY information from the conversation — do not invent facts.",
+      "If the conversation lacks enough data, set confidence to Low and explain in note.",
       '"references" must quote or paraphrase actual messages.',
       '"confidence" must be exactly one of: High, Medium, Low.',
     ],
   },
-
 };
 
 // ── Supported action names ─────────────────────────────────────────────────
 
 export const ACTIONS = Object.freeze(
-  Object.fromEntries(Object.keys(ACTION_PROMPTS).map((k) => [k, k]))
+  Object.fromEntries(Object.keys(ACTION_PROMPTS).map((k) => [k, k])),
 );
 
 // ── Transcript builder ─────────────────────────────────────────────────────
 
 function hasImage(m) {
-  return typeof m.image_url === 'string' && m.image_url.startsWith('data:image') && m.image_url.includes(';base64,');
+  return (
+    typeof m.image_url === "string" &&
+    m.image_url.startsWith("data:image") &&
+    m.image_url.includes(";base64,")
+  );
 }
 
 function buildTranscript(messages) {
   return messages
     .map((m) => {
-      const time    = new Date(m.message_time).toISOString().replace('T', ' ').slice(0, 19);
-      const caption = m.message ? m.message : '';
-      const imgTag  = hasImage(m) ? ' [IMAGE ATTACHED — see inline part below]' : '';
-      const text    = caption || (hasImage(m) ? '(image only — no caption)' : '(no content)');
+      const time = new Date(m.message_time)
+        .toISOString()
+        .replace("T", " ")
+        .slice(0, 19);
+      const caption = m.message ? m.message : "";
+      const imgTag = hasImage(m)
+        ? " [IMAGE ATTACHED — see inline part below]"
+        : "";
+      const text =
+        caption || (hasImage(m) ? "(image only — no caption)" : "(no content)");
       return `[${time}] ${m.sender}: ${text}${imgTag}`;
     })
-    .join('\n');
+    .join("\n");
 }
 
 // ── Main export ────────────────────────────────────────────────────────────
@@ -230,20 +241,20 @@ function buildTranscript(messages) {
  * @param {string} [extraInput] Optional — user question (chat), reply intent (reply), etc.
  * @returns {string}  Fully built prompt ready for Gemini
  */
-export function buildPrompt(action, messages, extraInput = '') {
+export function buildPrompt(action, messages, extraInput = "") {
   const def = ACTION_PROMPTS[action];
   if (!def) {
     throw new Error(
-      `Unknown action: "${action}". Supported: ${Object.keys(ACTION_PROMPTS).join(', ')}`
+      `Unknown action: "${action}". Supported: ${Object.keys(ACTION_PROMPTS).join(", ")}`,
     );
   }
 
   if (!Array.isArray(messages) || messages.length === 0) {
-    throw new Error('messages must be a non-empty array');
+    throw new Error("messages must be a non-empty array");
   }
 
-  const from      = new Date(messages[0].message_time).toISOString();
-  const to        = new Date(messages[messages.length - 1].message_time).toISOString();
+  const from = new Date(messages[0].message_time).toISOString();
+  const to = new Date(messages[messages.length - 1].message_time).toISOString();
   const transcript = buildTranscript(messages);
 
   // Resolve dynamic extra-input injection (may throw for required fields)
@@ -253,18 +264,18 @@ export function buildPrompt(action, messages, extraInput = '') {
       ? `ADDITIONAL CONTEXT: ${extraInput.trim()}`
       : null;
 
-  const imageMsgs  = messages.filter(hasImage);
+  const imageMsgs = messages.filter(hasImage);
   const imageCount = imageMsgs.length;
 
   const parts = [
     SYSTEM_PROMPT,
-    '',
+    "",
     `--- ROLE ---`,
     def.role,
-    '',
+    "",
     `--- CONVERSATION (${messages.length} messages, ${from} → ${to}) ---`,
     transcript,
-    '',
+    "",
   ];
 
   if (imageCount > 0) {
@@ -279,32 +290,32 @@ export function buildPrompt(action, messages, extraInput = '') {
       `3. Include specific visual details (button labels, field names, error codes, colours, layout) where relevant.`,
       `4. Combine the image content with the caption text and surrounding conversation for full context.`,
       `5. Never skip an image — treat it as the primary evidence for that message.`,
-      '',
+      "",
     );
   }
 
   if (extraSection) {
-    parts.push(`--- INPUT ---`, extraSection, '');
+    parts.push(`--- INPUT ---`, extraSection, "");
   }
 
   parts.push(
     `--- TASK ---`,
     def.task,
-    '',
+    "",
     `--- RESPONSE SCHEMA ---`,
     `Return ONLY this JSON structure (no markdown, no prose):`,
     def.schema,
-    '',
+    "",
     `--- RULES ---`,
-    def.rules.map((r, i) => `${i + 1}. ${r}`).join('\n'),
+    def.rules.map((r, i) => `${i + 1}. ${r}`).join("\n"),
   );
 
-  return parts.join('\n');
+  return parts.join("\n");
 }
 
 // ── Backward-compat export ─────────────────────────────────────────────────
 export function buildSummaryPrompt(_groupName, messages) {
-  return buildPrompt('summarize', messages);
+  return buildPrompt("summarize", messages);
 }
 
 export function actionUsesJson() {

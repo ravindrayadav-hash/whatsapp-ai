@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { useInfiniteMessages } from "../hooks/useInfiniteMessages.js";
 import { useAIPanel } from "../hooks/useAIPanel.js";
 import useFetch from "../hooks/useFetch.js";
+import useAutoRefresh from "../hooks/useAutoRefresh.js";
 import { fetchGroups, fetchSenders } from "../api/client.js";
 import MessagePanel from "../components/ai/MessagePanel.jsx";
 
@@ -311,11 +312,15 @@ export default function MessagesView() {
   );
   const senders = sendersData?.data ?? [];
 
-  const { messages, loading, error, hasMore, total, sentinelRef } =
+  const { messages, loading, error, hasMore, total, sentinelRef, reload } =
     useInfiniteMessages(selectedGroup, {
       sender: selectedSender,
       order: selectedOrder,
     });
+
+  // Auto-reload from page 1 every 30 s when a group is selected,
+  // so new messages added by the scraper cron appear without a manual refresh.
+  useAutoRefresh(reload, 30_000, !!selectedGroup);
 
   // ── AI panel ───────────────────────────────────────────────────────────────
   const panel = useAIPanel(messages, selectedGroup);
@@ -370,6 +375,12 @@ export default function MessagesView() {
             <option value="ASC">Oldest first</option>
             <option value="DESC">Newest first</option>
           </select>
+        )}
+
+        {selectedGroup && (
+          <button className="btn btn-ghost" onClick={reload} disabled={loading}>
+            ↻ Refresh
+          </button>
         )}
 
         {total > 0 && (

@@ -1,17 +1,27 @@
-import cron from 'node-cron';
-import { launchMainSession, openGroupPage, closeGroupPage, closeSession } from '../scraper/whatsapp.session.js';
-import { scrapeGroupMessages } from '../scraper/whatsapp.scraper.js';
-import { postMessage } from '../scraper/message.client.js';
-import { initCursor, filterNew, markSent, getCursor } from '../scraper/scraper.dedup.js';
+import cron from "node-cron";
+import {
+  launchMainSession,
+  openGroupPage,
+  closeGroupPage,
+  closeSession,
+} from "../scraper/whatsapp.session.js";
+import { scrapeGroupMessages } from "../scraper/whatsapp.scraper.js";
+import { postMessage } from "../scraper/message.client.js";
+import {
+  initCursor,
+  filterNew,
+  markSent,
+  getCursor,
+} from "../scraper/scraper.dedup.js";
 
-const SCHEDULE    = process.env.SCRAPER_SCHEDULE    || '*/5 * * * *';
-const MAX_RETRIES = Number(process.env.CRON_MAX_RETRIES)    || 2;
+const SCHEDULE = process.env.SCRAPER_SCHEDULE || "*/5 * * * *";
+const MAX_RETRIES = Number(process.env.CRON_MAX_RETRIES) || 2;
 const RETRY_DELAY = Number(process.env.CRON_RETRY_DELAY_MS) || 5000;
-const MSG_LIMIT   = Number(process.env.WA_MESSAGE_LIMIT)    || 50;
+const MSG_LIMIT = Number(process.env.WA_MESSAGE_LIMIT) || 50;
 
 // Groups to scrape — comma-separated in env
-const CONFIGURED_GROUPS = (process.env.WA_GROUPS || '')
-  .split(',')
+const CONFIGURED_GROUPS = (process.env.WA_GROUPS || "")
+  .split(",")
   .map((g) => g.trim())
   .filter(Boolean);
 
@@ -22,12 +32,14 @@ let isRunning = false;
 
 async function runScraperJob() {
   if (isRunning) {
-    console.warn('[Scraper Cron] Previous tick still running — skipping');
+    console.warn("[Scraper Cron] Previous tick still running — skipping");
     return;
   }
 
   if (CONFIGURED_GROUPS.length === 0) {
-    console.warn('[Scraper Cron] No groups configured in WA_GROUPS — nothing to scrape');
+    console.warn(
+      "[Scraper Cron] No groups configured in WA_GROUPS — nothing to scrape",
+    );
     return;
   }
 
@@ -50,7 +62,9 @@ async function runScraperJob() {
         page = await openGroupPage(context);
         await scrapeAndSend(page, group_name);
       } catch (firstErr) {
-        console.error(`[Scraper Cron] ✗ "${group_name}" failed (attempt 1): ${firstErr.message}`);
+        console.error(
+          `[Scraper Cron] ✗ "${group_name}" failed (attempt 1): ${firstErr.message}`,
+        );
 
         // Per-group crash recovery: close the bad tab and try once more with a
         // fresh page before giving up. This keeps other groups unaffected when
@@ -61,13 +75,14 @@ async function runScraperJob() {
           await scrapeAndSend(page, group_name);
           console.log(`[Scraper Cron] ✓ "${group_name}" recovered on retry`);
         } catch (retryErr) {
-          console.error(`[Scraper Cron] ✗✗ "${group_name}" failed on retry — skipping: ${retryErr.message}`);
+          console.error(
+            `[Scraper Cron] ✗✗ "${group_name}" failed on retry — skipping: ${retryErr.message}`,
+          );
         }
       } finally {
         if (page) await closeGroupPage(page);
       }
     }
-
   } catch (err) {
     // Catches session-level failures (WA login lost, browser crash)
     console.error(`[Scraper Cron] Fatal tick error: ${err.message}`, err.stack);
@@ -94,7 +109,12 @@ async function scrapeAndSend(page, group_name) {
     const cursor = cursorTs === new Date(0).toISOString() ? null : cursorTs;
 
     // Scrape — pass cursor so the scraper picks the right extraction strategy
-    const scraped = await scrapeGroupMessages(page, group_name, cursor, MSG_LIMIT);
+    const scraped = await scrapeGroupMessages(
+      page,
+      group_name,
+      cursor,
+      MSG_LIMIT,
+    );
 
     // Dedup filter
     const fresh = filterNew(group_name, scraped);
@@ -104,7 +124,9 @@ async function scrapeAndSend(page, group_name) {
       return;
     }
 
-    console.log(`[Scraper Cron] "${group_name}": ${fresh.length} new message(s) to send`);
+    console.log(
+      `[Scraper Cron] "${group_name}": ${fresh.length} new message(s) to send`,
+    );
 
     // Send to API sequentially — preserve order, respect rate limits
     const sent = [];
@@ -116,8 +138,9 @@ async function scrapeAndSend(page, group_name) {
     // Advance cursor only after confirmed sends
     markSent(group_name, sent);
 
-    console.log(`[Scraper Cron] ✓ "${group_name}": ${sent.length}/${fresh.length} messages saved`);
-
+    console.log(
+      `[Scraper Cron] ✓ "${group_name}": ${sent.length}/${fresh.length} messages saved`,
+    );
   } catch (err) {
     console.error(`[Scraper Cron] ✗ "${group_name}" failed: ${err.message}`);
   }
@@ -134,7 +157,9 @@ async function sendWithRetry(group_name, msg) {
 
       if (result.duplicate) {
         // 409 means it's already in the DB — not a failure, just skip
-        console.log(`[Scraper Cron] — duplicate skipped: [${msg.timestamp}] ${msg.sender}`);
+        console.log(
+          `[Scraper Cron] — duplicate skipped: [${msg.timestamp}] ${msg.sender}`,
+        );
         return false;
       }
 
@@ -143,7 +168,6 @@ async function sendWithRetry(group_name, msg) {
       }
 
       return true; // successfully saved
-
     } catch (err) {
       lastError = err;
 
@@ -151,7 +175,7 @@ async function sendWithRetry(group_name, msg) {
         const delay = RETRY_DELAY * attempt;
         console.warn(
           `[Scraper Cron] ✗ send failed for "${group_name}" (attempt ${attempt}/${MAX_RETRIES + 1}). ` +
-          `Retrying in ${delay}ms. Error: ${err.message}`
+            `Retrying in ${delay}ms. Error: ${err.message}`,
         );
         await sleep(delay);
       }
@@ -160,7 +184,7 @@ async function sendWithRetry(group_name, msg) {
 
   console.error(
     `[Scraper Cron] ✗✗ giving up on message from ${msg.sender} at ${msg.timestamp}. ` +
-    `Last error: ${lastError.message}`
+      `Last error: ${lastError.message}`,
   );
   return false;
 }
@@ -173,8 +197,8 @@ async function sendWithRetry(group_name, msg) {
  * @returns {import('node-cron').ScheduledTask | null}
  */
 export function startScraperJob() {
-  if (process.env.SCRAPER_ENABLED !== 'true') {
-    console.log('[Scraper Cron] Disabled (SCRAPER_ENABLED != true)');
+  if (process.env.SCRAPER_ENABLED !== "true") {
+    console.log("[Scraper Cron] Disabled (SCRAPER_ENABLED != true)");
     return null;
   }
 
@@ -184,10 +208,12 @@ export function startScraperJob() {
 
   const task = cron.schedule(SCHEDULE, runScraperJob, {
     scheduled: true,
-    timezone: 'UTC',
+    timezone: "UTC",
   });
 
-  console.log(`[Scraper Cron] Scheduled — ${SCHEDULE} (UTC) | Groups: ${CONFIGURED_GROUPS.join(', ') || 'none'}`);
+  console.log(
+    `[Scraper Cron] Scheduled — ${SCHEDULE} (UTC) | Groups: ${CONFIGURED_GROUPS.join(", ") || "none"}`,
+  );
   return task;
 }
 

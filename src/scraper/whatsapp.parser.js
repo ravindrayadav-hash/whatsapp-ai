@@ -21,8 +21,8 @@ export function parsePrePlainText(attr) {
   const match = attr.match(/^\[([^\]]+)\]\s+(.+?):\s*$/);
   if (!match) return null;
 
-  const rawTime = match[1].trim();   // "10:32, 5/4/2026"
-  const sender  = match[2].trim();   // "John Doe"
+  const rawTime = match[1].trim(); // "10:32, 5/4/2026"
+  const sender = match[2].trim(); // "John Doe"
 
   const timestamp = parseWhatsAppTime(rawTime);
 
@@ -37,32 +37,32 @@ export function parsePrePlainText(attr) {
  * @returns {string} ISO 8601 string, or raw string if unparseable
  */
 function parseWhatsAppTime(raw) {
-  const parts = raw.split(',').map((s) => s.trim());
+  const parts = raw.split(",").map((s) => s.trim());
   if (parts.length !== 2) return raw;
 
   let timePart, datePart;
 
   // Detect which part is the time (contains ':' but not '/')
-  if (parts[0].includes(':') && !parts[0].includes('/')) {
+  if (parts[0].includes(":") && !parts[0].includes("/")) {
     [timePart, datePart] = parts;
   } else {
     [datePart, timePart] = parts;
   }
 
   // datePart: "5/4/2026" or "04/05/2026"
-  const datePieces = datePart.trim().split('/');
+  const datePieces = datePart.trim().split("/");
   if (datePieces.length !== 3) return raw;
 
   const [d, m, y] = datePieces.map(Number);
   if ([d, m, y].some(isNaN)) return raw;
 
   // timePart may be "8:08 pm", "20:08", "8:08 am"
-  const timeStr   = timePart.trim().toLowerCase();
-  const isPm      = timeStr.includes('pm');
-  const isAm      = timeStr.includes('am');
-  const cleanTime = timeStr.replace(/\s*(am|pm)/i, '').trim();
+  const timeStr = timePart.trim().toLowerCase();
+  const isPm = timeStr.includes("pm");
+  const isAm = timeStr.includes("am");
+  const cleanTime = timeStr.replace(/\s*(am|pm)/i, "").trim();
 
-  const timePieces = cleanTime.split(':').map(Number);
+  const timePieces = cleanTime.split(":").map(Number);
   if (timePieces.length < 2 || timePieces.some(isNaN)) return raw;
 
   let [h, min] = timePieces;
@@ -101,8 +101,8 @@ export async function extractMessagesFromDOM({ sel, limit }) {
   // undefined inside the browser context, causing ReferenceError.
   async function toBase64(src) {
     if (!src) return null;
-    if (src.startsWith('data:image')) return src;
-    if (!src.startsWith('blob:')) return null;
+    if (src.startsWith("data:image")) return src;
+    if (!src.startsWith("blob:")) return null;
     try {
       const res = await fetch(src);
       if (!res.ok) return null;
@@ -110,11 +110,13 @@ export async function extractMessagesFromDOM({ sel, limit }) {
       if (!blob || blob.size === 0) return null;
       return new Promise((resolve) => {
         const reader = new FileReader();
-        reader.onloadend = () => resolve(
-          typeof reader.result === 'string' && reader.result.startsWith('data:')
-            ? reader.result
-            : null
-        );
+        reader.onloadend = () =>
+          resolve(
+            typeof reader.result === "string" &&
+              reader.result.startsWith("data:")
+              ? reader.result
+              : null,
+          );
         reader.onerror = () => resolve(null);
         reader.readAsDataURL(blob);
       });
@@ -127,20 +129,22 @@ export async function extractMessagesFromDOM({ sel, limit }) {
   const results = [];
 
   for (const bubble of bubbles.slice(-limit)) {
-    const rawPrePlain = bubble.getAttribute('data-pre-plain-text') || '';
+    const rawPrePlain = bubble.getAttribute("data-pre-plain-text") || "";
 
     // ── Image detection ───────────────────────────────────────────────────────
     let imgEl = bubble.querySelector(sel.MSG_IMAGE);
 
     if (!imgEl) {
-      const fallback = bubble.querySelector('img[src^="blob:"], img[src^="data:image/"]');
+      const fallback = bubble.querySelector(
+        'img[src^="blob:"], img[src^="data:image/"]',
+      );
       if (fallback) imgEl = fallback;
     }
 
     let imageData = null;
 
     if (imgEl) {
-      const src = imgEl.getAttribute('src') || imgEl.src || '';
+      const src = imgEl.getAttribute("src") || imgEl.src || "";
       imageData = await toBase64(src);
     }
 
@@ -152,7 +156,7 @@ export async function extractMessagesFromDOM({ sel, limit }) {
       bubble.querySelector(sel.MSG_TEXT) ||
       bubble.querySelector(sel.MSG_TEXT_ALT);
 
-    const textContent = textEl ? textEl.innerText.trim() : '';
+    const textContent = textEl ? textEl.innerText.trim() : "";
 
     // Skip system messages / date dividers (no sender meta, no content)
     if (!rawPrePlain && !textContent && !imageData) continue;

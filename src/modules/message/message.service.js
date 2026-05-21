@@ -1,7 +1,10 @@
-import { createHash } from 'crypto';
-import { AppDataSource } from '../../config/database.js';
-import { Message } from '../../entities/Message.js';
-import { isBase64DataUrl, saveImageFromDataUrl } from '../image/image.storage.js';
+import { createHash } from "crypto";
+import { AppDataSource } from "../../config/database.js";
+import { Message } from "../../entities/Message.js";
+import {
+  isBase64DataUrl,
+  saveImageFromDataUrl,
+} from "../image/image.storage.js";
 
 /**
  * Returns the TypeORM repository for Message.
@@ -21,16 +24,16 @@ const repo = () => AppDataSource.getRepository(Message);
  * @returns {'text' | 'image' | 'mixed'}
  */
 function resolveMessageType(message, imageUrl) {
-  const hasText  = message.length > 0;
+  const hasText = message.length > 0;
   const hasImage = !!imageUrl;
-  if (hasText && hasImage) return 'mixed';
-  if (hasImage)            return 'image';
-  return 'text';
+  if (hasText && hasImage) return "mixed";
+  if (hasImage) return "image";
+  return "text";
 }
 
 export async function saveMessage(data) {
-  const messageText = (data.message || '').trim();
-  let   imageUrl    = data.image_url || null;
+  const messageText = (data.message || "").trim();
+  let imageUrl = data.image_url || null;
 
   // Hash strategy — must be computed from the original content BEFORE the
   // base64 data URL is replaced with a local file path, so that dedup remains
@@ -39,8 +42,9 @@ export async function saveMessage(data) {
   //   text / caption  → MD5(text)
   //   image-only      → MD5(first 4 KB of base64 data URL) — distinguishes images
   //   (edge case)     → MD5('[empty]')
-  const hashInput    = messageText || (imageUrl ? imageUrl.slice(0, 4096) : '[empty]');
-  const message_hash = createHash('md5').update(hashInput).digest('hex');
+  const hashInput =
+    messageText || (imageUrl ? imageUrl.slice(0, 4096) : "[empty]");
+  const message_hash = createHash("md5").update(hashInput).digest("hex");
 
   // Save base64 image to local storage and replace data URL with a file path.
   // Skip if the URL is already a local path (e.g. re-processed row).
@@ -55,10 +59,10 @@ export async function saveMessage(data) {
     .insert()
     .into(Message)
     .values({
-      group_name:   data.group_name.trim(),
-      sender:       data.sender.trim(),
-      message:      messageText,
-      image_url:    imageUrl,
+      group_name: data.group_name.trim(),
+      sender: data.sender.trim(),
+      message: messageText,
+      image_url: imageUrl,
       message_type,
       message_time: new Date(data.message_time),
       message_hash,
@@ -68,8 +72,8 @@ export async function saveMessage(data) {
 
   // orIgnore() on a duplicate returns identifiers: [] — treat as duplicate
   if (!result.identifiers?.length) {
-    const err = new Error('Duplicate message');
-    err.code = 'ER_DUP_ENTRY';
+    const err = new Error("Duplicate message");
+    err.code = "ER_DUP_ENTRY";
     throw err;
   }
 
@@ -81,16 +85,16 @@ export async function saveMessage(data) {
  * Kept as a helper so cursor mode and offset mode each use their own qb instance.
  */
 function applyFilters(qb, { from, to, sender }) {
-  if (from) qb.andWhere('m.message_time >= :from', { from: new Date(from) });
-  if (to)   qb.andWhere('m.message_time <= :to',   { to:   new Date(to)   });
+  if (from) qb.andWhere("m.message_time >= :from", { from: new Date(from) });
+  if (to) qb.andWhere("m.message_time <= :to", { to: new Date(to) });
 
   if (sender) {
-    const s         = sender.trim();
-    const firstName = s.split(' ')[0];
-    qb.andWhere(
-      '(m.sender = :sender OR m.message LIKE :mention)',
-      { sender: s, mention: `%@${firstName}%` }
-    );
+    const s = sender.trim();
+    const firstName = s.split(" ")[0];
+    qb.andWhere("(m.sender = :sender OR m.message LIKE :mention)", {
+      sender: s,
+      mention: `%@${firstName}%`,
+    });
   }
 }
 
@@ -110,32 +114,42 @@ function applyFilters(qb, { from, to, sender }) {
  *            cursor_id?, cursor_time? }} filters
  * @returns {Promise<{ data, total, page, limit, hasMore, nextCursorId?, nextCursorTime? }>}
  */
-export async function getMessagesByGroup({ group_name, from, to, limit = 50, page = 1, order = 'DESC', sender, cursor_id, cursor_time }) {
-  const direction = order.toUpperCase() === 'DESC' ? 'DESC' : 'ASC';
-  const pageSize  = Math.min(Math.max(Number(limit) || 50, 1), 500); // clamp 1–500
+export async function getMessagesByGroup({
+  group_name,
+  from,
+  to,
+  limit = 50,
+  page = 1,
+  order = "DESC",
+  sender,
+  cursor_id,
+  cursor_time,
+}) {
+  const direction = order.toUpperCase() === "DESC" ? "DESC" : "ASC";
+  const pageSize = Math.min(Math.max(Number(limit) || 50, 1), 500); // clamp 1–500
   const groupTrimmed = group_name.trim();
 
   // ── Cursor mode ──────────────────────────────────────────────────────────────
   // Own query builder — completely isolated from offset mode.
   if (cursor_id && cursor_time) {
     const cursorDate = new Date(cursor_time);
-    const cursorQb   = repo()
-      .createQueryBuilder('m')
-      .where('m.group_name = :group_name', { group_name: groupTrimmed })
-      .orderBy('m.message_time', direction)
-      .addOrderBy('m.id', direction);
+    const cursorQb = repo()
+      .createQueryBuilder("m")
+      .where("m.group_name = :group_name", { group_name: groupTrimmed })
+      .orderBy("m.message_time", direction)
+      .addOrderBy("m.id", direction);
 
     applyFilters(cursorQb, { from, to, sender });
 
-    if (direction === 'DESC') {
+    if (direction === "DESC") {
       cursorQb.andWhere(
-        '(m.message_time < :ct OR (m.message_time = :ct AND m.id < :cid))',
-        { ct: cursorDate, cid: Number(cursor_id) }
+        "(m.message_time < :ct OR (m.message_time = :ct AND m.id < :cid))",
+        { ct: cursorDate, cid: Number(cursor_id) },
       );
     } else {
       cursorQb.andWhere(
-        '(m.message_time > :ct OR (m.message_time = :ct AND m.id > :cid))',
-        { ct: cursorDate, cid: Number(cursor_id) }
+        "(m.message_time > :ct OR (m.message_time = :ct AND m.id > :cid))",
+        { ct: cursorDate, cid: Number(cursor_id) },
       );
     }
 
@@ -145,11 +159,11 @@ export async function getMessagesByGroup({ group_name, from, to, limit = 50, pag
 
     return {
       data,
-      total:          null, // not calculated in cursor mode (avoids a count query)
-      page:           null,
-      limit:          pageSize,
-      hasMore:        data.length === pageSize,
-      nextCursorId:   last?.id           ?? null,
+      total: null, // not calculated in cursor mode (avoids a count query)
+      page: null,
+      limit: pageSize,
+      hasMore: data.length === pageSize,
+      nextCursorId: last?.id ?? null,
       nextCursorTime: last?.message_time ?? null,
     };
   }
@@ -157,13 +171,13 @@ export async function getMessagesByGroup({ group_name, from, to, limit = 50, pag
   // ── Offset mode (default) ─────────────────────────────────────────────────────
   // Own query builder — no addOrderBy, no cursor conditions.
   // Identical behaviour to the original implementation.
-  const pageNum  = Math.max(Number(page) || 1, 1);
-  const offset   = (pageNum - 1) * pageSize;
+  const pageNum = Math.max(Number(page) || 1, 1);
+  const offset = (pageNum - 1) * pageSize;
 
   const offsetQb = repo()
-    .createQueryBuilder('m')
-    .where('m.group_name = :group_name', { group_name: groupTrimmed })
-    .orderBy('m.message_time', direction);
+    .createQueryBuilder("m")
+    .where("m.group_name = :group_name", { group_name: groupTrimmed })
+    .orderBy("m.message_time", direction);
 
   applyFilters(offsetQb, { from, to, sender });
 
@@ -173,8 +187,8 @@ export async function getMessagesByGroup({ group_name, from, to, limit = 50, pag
   return {
     data,
     total,
-    page:    pageNum,
-    limit:   pageSize,
+    page: pageNum,
+    limit: pageSize,
     hasMore: offset + data.length < total,
   };
 }
@@ -185,10 +199,10 @@ export async function getMessagesByGroup({ group_name, from, to, limit = 50, pag
  */
 export async function getSendersByGroup(group_name) {
   const rows = await repo()
-    .createQueryBuilder('m')
-    .select('DISTINCT m.sender', 'sender')
-    .where('m.group_name = :group_name', { group_name: group_name.trim() })
-    .orderBy('m.sender', 'ASC')
+    .createQueryBuilder("m")
+    .select("DISTINCT m.sender", "sender")
+    .where("m.group_name = :group_name", { group_name: group_name.trim() })
+    .orderBy("m.sender", "ASC")
     .getRawMany();
   return rows.map((r) => r.sender);
 }
@@ -202,9 +216,9 @@ export async function getSendersByGroup(group_name) {
  */
 export async function getUnprocessedMessages(group_name, after) {
   return repo()
-    .createQueryBuilder('m')
-    .where('m.group_name = :group_name', { group_name })
-    .andWhere('m.message_time > :after', { after })
-    .orderBy('m.message_time', 'ASC')
+    .createQueryBuilder("m")
+    .where("m.group_name = :group_name", { group_name })
+    .andWhere("m.message_time > :after", { after })
+    .orderBy("m.message_time", "ASC")
     .getMany();
 }
