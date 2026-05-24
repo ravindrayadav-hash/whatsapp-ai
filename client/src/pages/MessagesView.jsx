@@ -4,6 +4,7 @@ import { useInfiniteMessages } from "../hooks/useInfiniteMessages.js";
 import { useAIPanel } from "../hooks/useAIPanel.js";
 import useFetch from "../hooks/useFetch.js";
 import useAutoRefresh from "../hooks/useAutoRefresh.js";
+import useScraperStatus from "../hooks/useScraperStatus.js";
 import { fetchGroups, fetchSenders } from "../api/client.js";
 import MessagePanel from "../components/ai/MessagePanel.jsx";
 
@@ -318,9 +319,11 @@ export default function MessagesView() {
       order: selectedOrder,
     });
 
-  // Auto-reload from page 1 every 30 s when a group is selected,
-  // so new messages added by the scraper cron appear without a manual refresh.
-  useAutoRefresh(reload, 30_000, !!selectedGroup);
+  // Pause auto-refresh while scraper is running; auto-reload once scan completes.
+  const { running: scraperRunning } = useScraperStatus({
+    onScanComplete: reload,
+  });
+  useAutoRefresh(reload, 30_000, !!selectedGroup && !scraperRunning);
 
   // ── AI panel ───────────────────────────────────────────────────────────────
   const panel = useAIPanel(messages, selectedGroup);
@@ -396,6 +399,37 @@ export default function MessagesView() {
           </span>
         )}
       </div>
+
+      {/* ── Scanning banner ── */}
+      {scraperRunning && (
+        <div
+          style={{
+            background: "rgba(96,165,250,0.1)",
+            border: "1px solid rgba(96,165,250,0.25)",
+            borderRadius: 8,
+            padding: "10px 14px",
+            marginBottom: 12,
+            fontSize: 13,
+            color: "var(--info)",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <span
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              background: "var(--info)",
+              flexShrink: 0,
+              animation: "pulse 1.5s ease-in-out infinite",
+            }}
+          />
+          Scanning WhatsApp — new messages will appear automatically when the
+          scan completes
+        </div>
+      )}
 
       {/* ── Error ── */}
       {error && <div className="error-banner">{error}</div>}

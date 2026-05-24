@@ -1,14 +1,16 @@
-import { fetchLatestMessageTime } from "./message.client.js";
+import { AppDataSource } from "../config/database.js";
+import { Message } from "../entities/Message.js";
 
 /**
  * Per-group deduplication tracker.
  *
  * Two-layer strategy:
- *  1. Cursor (timestamp) — fetched from the API on first use per group.
- *     Filters out anything already persisted before this process started.
+ *  1. Cursor (timestamp) — queried directly from the DB at the start of each
+ *     tick. This is the MAX(message_time) already persisted for the group.
+ *     Bypasses the HTTP API so it works even before the API server is ready.
  *  2. Fingerprint Set — tracks messages sent in THIS process lifetime.
  *     Prevents re-sending within the same run if the scraper re-reads
- *     the same message before it's been returned by the API cursor.
+ *     the same message before it's been reflected in the cursor.
  */
 
 // group_name → ISO timestamp string (the latest message_time in DB for this group)
@@ -18,12 +20,7 @@ const cursors = new Map();
 const seen = new Set();
 
 /**
- * Bootstraps the cursor for a group from the API if not already loaded.
- * Safe to call multiple times — only fetches once per group per process.
- * @param {string} group_name
- */
-/**
- * Returns the current cursor for a group (undefined if not yet initialised).
+ * Returns the current in-memory cursor for a group (undefined if not yet initialised).
  * @param {string} group_name
  * @returns {string | undefined}
  */
@@ -31,14 +28,40 @@ export function getCursor(group_name) {
   return cursors.get(group_name);
 }
 
+/**
+ * Refreshes the cursor for a group by querying MAX(message_time) from the DB.
+ * Called at the start of every scraper tick — no "once per process" guard —
+ * so the cursor always reflects the latest persisted message before scraping.
+ *
+ * Falls back to epoch (new Date(0)) for new groups or if the DB is unreachable,
+ * which causes the scraper to pull full history on the first successful tick.
+ *
+ * @param {string} group_name
+ */
 export async function initCursor(group_name) {
-  if (cursors.has(group_name)) return;
+  try {
+    const repo = AppDataSource.getRepository(Message);
+    const row = await repo
+      .createQueryBuilder("m")
+      .select("MAX(m.message_time)", "latest")
+      .where("m.group_name = :group_name", { group_name })
+      .getRawOne();
 
-  const latest = await fetchLatestMessageTime(group_name).catch(() => null);
-  // If null (new group / API down) default to epoch so all messages pass through
-  cursors.set(group_name, latest ?? new Date(0).toISOString());
-
-  console.log(`[Dedup] Cursor for "${group_name}": ${cursors.get(group_name)}`);
+    // row.latest is null for a new group (no rows yet) — fall back to epoch
+    const latest = row?.latest
+      ? new Date(row.latest).toISOString()
+      : new Date(0).toISOString();
+    cursors.set(group_name, latest);
+    console.log(`[Dedup] Cursor refreshed for "${group_name}": ${latest}`);
+  } catch (err) {
+    // DB unreachable — keep existing cursor if we have one, else fall back to epoch
+    if (!cursors.has(group_name)) {
+      cursors.set(group_name, new Date(0).toISOString());
+    }
+    console.warn(
+      `[Dedup] Could not refresh cursor for "${group_name}" (DB error): ${err.message}`,
+    );
+  }
 }
 
 /**

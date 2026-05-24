@@ -5,6 +5,7 @@ import { Message } from '../entities/Message.js';
 import { Summary } from '../entities/Summary.js';
 import { ProcessingLog } from '../entities/ProcessingLog.js';
 import { AiLog } from '../entities/AiLog.js';
+import { DailyStatusSession } from '../entities/DailyStatusSession.js';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -42,5 +43,5 @@ export const AppDataSource = new DataSource({
   maxQueryExecutionTime: 1000,            // log queries taking > 1s in all envs
 
   // ── Entities ─────────────────────────────────────────────────
-  entities: [User, Message, Summary, ProcessingLog, AiLog],
+  entities: [User, Message, Summary, ProcessingLog, AiLog, DailyStatusSession],
 });

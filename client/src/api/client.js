@@ -43,6 +43,10 @@ export async function fetchGroups() {
   return request("/groups");
 }
 
+export async function fetchScraperStatus() {
+  return request("/scraper/status");
+}
+
 export async function fetchMessages(
   group_name,
   { limit = 50, page, from, to, sender, order } = {},
@@ -106,15 +110,31 @@ export async function fetchJiraIssue(issueKey) {
   return request(`/jira/issue/${encodeURIComponent(issueKey)}`);
 }
 
-export async function createJiraIssue({ projectKey, summary, description, issueType, priority, status }) {
+export async function createJiraIssue({
+  projectKey,
+  summary,
+  description,
+  issueType,
+  priority,
+  status,
+}) {
   const res = await fetch(`${BASE}/jira/issue`, {
     method: "POST",
     headers: { "Content-Type": "application/json", ...authHeader() },
-    body: JSON.stringify({ projectKey, summary, description, issueType, priority, status }),
+    body: JSON.stringify({
+      projectKey,
+      summary,
+      description,
+      issueType,
+      priority,
+      status,
+    }),
   });
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    throw new Error(body.error || body.message || `Jira create failed (${res.status})`);
+    throw new Error(
+      body.error || body.message || `Jira create failed (${res.status})`,
+    );
   }
   return res.json();
 }

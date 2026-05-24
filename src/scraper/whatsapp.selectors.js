@@ -9,7 +9,12 @@
 export const SELECTORS = {
   // ── Landing / QR screen ────────────────────────────────────────
   QR_CODE: 'canvas[aria-label="Scan this QR code to link a device"]',
-  MAIN_APP: "#app .two",
+  // MAIN_APP: multiple fallbacks cover WA Web builds from 2023–2026.
+  //   #app .two          — long-standing WA Web class (may vary by build)
+  //   #side              — left sidebar; present as soon as WA is logged in
+  //   #pane-side         — alternate sidebar id used in some WA builds
+  //   [data-testid="default-user"] — WA 2025+ stable test id
+  MAIN_APP: '#app .two, #side, #pane-side, [data-testid="default-user"]',
   LOADING_SPINNER: '[data-testid="startup-loading"]',
 
   // ── Left pane (chat list) ─────────────────────────────────────
@@ -73,6 +78,15 @@ export const SELECTORS = {
   // Primary: stable data-testid. Fallback: first overflow:scroll div inside #main.
   SCROLL_PANE: '[data-testid="conversation-panel-messages"]',
 
+  // ── Media viewer (full-res photo) ────────────────────────────────
+  //
+  // Opened when the user clicks an image thumbnail.
+  // WA builds vary — these three cover known 2024/2025 variants.
+  // upgradeImageForBubble() uses this to confirm the viewer is open
+  // before trying to capture the full-resolution blob.
+  MEDIA_VIEWER:
+    '[data-testid="media-viewer"], [data-testid="image-viewer"], [data-testid="photo-viewer-section"]',
+
   // ── Chat beginning marker ──────────────────────────────────────
   // WA shows an end-to-end encryption notice or "group created" system message
   // at the very top of a conversation once all history is loaded.
@@ -82,4 +96,26 @@ export const SELECTORS = {
   // Appears at the top of the message list while WA fetches older messages.
   HISTORY_LOADING:
     '[data-testid="media-upload-progress"], [aria-label="Loading"], [data-testid="tail"]',
+
+  // ── Message compose box ────────────────────────────────────────
+  //
+  // WA renders the reply input as a contenteditable <div>. Three selectors
+  // cover known WA Web builds across 2024–2025:
+  //   data-tab="10"     — long-standing stable attribute on the compose div
+  //   data-testid       — more recent builds expose this test id
+  //   aria-label        — falls back to the accessible label
+  //
+  // Order matters: try the most specific first, fall back to broader ones.
+  COMPOSE_BOX:
+    'div[contenteditable="true"][data-tab="10"], ' +
+    'div[data-testid="conversation-compose-box-input"], ' +
+    'div[contenteditable="true"][aria-label="Type a message"], ' +
+    'div[contenteditable="true"][aria-label="Message"]',
+
+  // ── Send button ────────────────────────────────────────────────
+  // Used as a fallback when pressing Enter does not trigger send
+  // (e.g. if WA detects Shift+Enter and treats it as a newline).
+  SEND_BTN:
+    'button[data-testid="send"], span[data-testid="send"], ' +
+    '[aria-label="Send"], [data-icon="send"]',
 };

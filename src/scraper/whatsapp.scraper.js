@@ -248,10 +248,23 @@ async function extractFullHistory(page, limit) {
       const fp = `${parsed.timestamp}|${parsed.sender}|${(textContent || "[Image]").slice(0, 80)}${imgTag}`;
 
       if (!collected.has(fp)) {
+        // Thumbnail is all we get from the DOM initially. Click to open the
+        // media viewer and capture the full-resolution blob instead.
+        let finalImage = imageData;
+        if (imageData) {
+          const upgraded = await upgradeImageForBubble(page, rawPrePlain);
+          if (upgraded) {
+            finalImage = upgraded;
+            console.log(
+              `[Scraper] ↑ Full-res captured: ${parsed.sender} @ ${parsed.timestamp.slice(0, 16)}`,
+            );
+          }
+        }
+
         collected.set(fp, {
           sender: parsed.sender,
           message: textContent,
-          image_url: imageData || null,
+          image_url: finalImage || null,
           timestamp: parsed.timestamp,
         });
         added++;
@@ -371,10 +384,23 @@ async function extractSinceCursor(page, cursor, limit) {
       const fp = `${parsed.timestamp}|${parsed.sender}|${(textContent || "[Image]").slice(0, 80)}${imgTag}`;
 
       if (!collected.has(fp)) {
+        // Thumbnail is all we get from the DOM initially. Click to open the
+        // media viewer and capture the full-resolution blob instead.
+        let finalImage = imageData;
+        if (imageData) {
+          const upgraded = await upgradeImageForBubble(page, rawPrePlain);
+          if (upgraded) {
+            finalImage = upgraded;
+            console.log(
+              `[Scraper] ↑ Full-res captured: ${parsed.sender} @ ${parsed.timestamp.slice(0, 16)}`,
+            );
+          }
+        }
+
         collected.set(fp, {
           sender: parsed.sender,
           message: textContent,
-          image_url: imageData || null,
+          image_url: finalImage || null,
           timestamp: parsed.timestamp,
         });
         added++;
@@ -438,6 +464,115 @@ async function extractSinceCursor(page, cursor, limit) {
       ` (${round} scroll rounds, boundary=${foundBoundary})`,
   );
   return messages;
+}
+
+// ── Full-resolution image capture ─────────────────────────────────────────────
+//
+// WhatsApp Web only shows a compressed thumbnail in the chat bubble.
+// The full-resolution image is loaded when the user clicks the thumbnail
+// and the media viewer opens. This function automates that interaction.
+//
+// Returns the full-res base64 data URL, or null if the capture fails
+// (e.g. viewer doesn't open, image never loads) — the caller falls back
+// to the thumbnail in that case.
+
+async function upgradeImageForBubble(page, rawPrePlain) {
+  const VIEWER_WAIT_MS = 6000; // max wait for viewer to appear
+  const IMAGE_LOAD_MS = 1500; // extra settle time after viewer opens
+
+  try {
+    // Click the thumbnail image inside this specific bubble.
+    // data-pre-plain-text values are "[HH:MM, DD/MM/YYYY] Sender: " — no
+    // double quotes, so embedding directly in the CSS selector is safe.
+    const thumb = page
+      .locator(
+        `[data-pre-plain-text="${rawPrePlain}"] [data-testid="image-thumb"] img, ` +
+          `[data-pre-plain-text="${rawPrePlain}"] img[src^="blob:"]`,
+      )
+      .first();
+
+    const visible = await thumb.isVisible({ timeout: 2000 }).catch(() => false);
+    if (!visible) return null;
+
+    await thumb.click({ timeout: 3000 });
+
+    // Wait for the media viewer overlay — silently skip if it never appears
+    const viewerAppeared = await page
+      .waitForSelector(SELECTORS.MEDIA_VIEWER, {
+        state: "visible",
+        timeout: VIEWER_WAIT_MS,
+      })
+      .then(() => true)
+      .catch(() => false);
+
+    if (!viewerAppeared) {
+      // Viewer didn't open — dismiss any residual UI and return null
+      await page.keyboard.press("Escape").catch(() => {});
+      return null;
+    }
+
+    // Let the full-resolution image finish loading
+    await page.waitForTimeout(IMAGE_LOAD_MS);
+
+    // Capture the largest visible blob image — the viewer renders the
+    // full-res image as an <img src="blob:..."> that is larger than any
+    // thumbnail in the chat list. We sort all candidates by rendered area
+    // and take the biggest one.
+    const fullImageData = await page.evaluate(async () => {
+      async function blobToBase64(src) {
+        if (!src) return null;
+        if (src.startsWith("data:image")) return src;
+        if (!src.startsWith("blob:")) return null;
+        try {
+          const res = await fetch(src);
+          if (!res.ok) return null;
+          const blob = await res.blob();
+          if (!blob || blob.size === 0) return null;
+          return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onloadend = () =>
+              resolve(
+                typeof reader.result === "string" &&
+                  reader.result.startsWith("data:")
+                  ? reader.result
+                  : null,
+              );
+            reader.onerror = () => resolve(null);
+            reader.readAsDataURL(blob);
+          });
+        } catch {
+          return null;
+        }
+      }
+
+      // Collect all visible blob images and sort by rendered area (largest first)
+      const candidates = Array.from(
+        document.querySelectorAll('img[src^="blob:"]'),
+      )
+        .map((img) => ({ img, rect: img.getBoundingClientRect() }))
+        .filter(({ rect }) => rect.width > 100 && rect.height > 100)
+        .sort(
+          (a, b) => b.rect.width * b.rect.height - a.rect.width * a.rect.height,
+        );
+
+      for (const { img } of candidates) {
+        const data = await blobToBase64(img.src);
+        if (data) return data;
+      }
+      return null;
+    });
+
+    // Close the viewer and give WA time to restore the chat view
+    await page.keyboard.press("Escape");
+    await page.waitForTimeout(600);
+
+    return fullImageData ?? null;
+  } catch (err) {
+    console.warn(`[Scraper] upgradeImageForBubble failed: ${err.message}`);
+    await page.keyboard.press("Escape").catch(() => {});
+    await page.waitForTimeout(300);
+    return null;
+  }
 }
 
 async function scrollToBottom(page) {

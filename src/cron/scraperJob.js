@@ -1,10 +1,12 @@
 import cron from "node-cron";
 import {
-  launchMainSession,
   openGroupPage,
   closeGroupPage,
-  closeSession,
 } from "../scraper/whatsapp.session.js";
+import {
+  getSharedContext,
+  destroySharedContext,
+} from "../scraper/browser.manager.js";
 import { scrapeGroupMessages } from "../scraper/whatsapp.scraper.js";
 import { postMessage } from "../scraper/message.client.js";
 import {
@@ -13,11 +15,39 @@ import {
   markSent,
   getCursor,
 } from "../scraper/scraper.dedup.js";
+import {
+  acquireBrowserLock,
+  releaseBrowserLock,
+} from "../scraper/browser.lock.js";
+import { drainQueue, queueSize } from "../scraper/send.queue.js";
+import { sendMessageToGroup } from "../scraper/whatsapp.sender.js";
 
 const SCHEDULE = process.env.SCRAPER_SCHEDULE || "*/5 * * * *";
 const MAX_RETRIES = Number(process.env.CRON_MAX_RETRIES) || 2;
 const RETRY_DELAY = Number(process.env.CRON_RETRY_DELAY_MS) || 5000;
 const MSG_LIMIT = Number(process.env.WA_MESSAGE_LIMIT) || 50;
+
+// Optional skip window — scraper exits immediately if current time (in SCRAPER_SKIP_TZ)
+// falls between SCRAPER_SKIP_FROM and SCRAPER_SKIP_TO (both "HH:MM", 24-hour).
+// Used to free the browser lock for the ReadSend job without changing the cron expression.
+const SKIP_FROM = (process.env.SCRAPER_SKIP_FROM || "").trim(); // e.g. "01:04"
+const SKIP_TO = (process.env.SCRAPER_SKIP_TO || "").trim(); // e.g. "01:24"
+const SKIP_TZ = (
+  process.env.SCRAPER_SKIP_TZ ||
+  process.env.READ_SEND_TIMEZONE ||
+  "Asia/Kolkata"
+).trim();
+
+function isInSkipWindow() {
+  if (!SKIP_FROM || !SKIP_TO) return false;
+  const hhmm = new Date().toLocaleTimeString("en-GB", {
+    timeZone: SKIP_TZ,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+  return hhmm >= SKIP_FROM && hhmm <= SKIP_TO;
+}
 
 // Groups to scrape — comma-separated in env
 const CONFIGURED_GROUPS = (process.env.WA_GROUPS || "")
@@ -25,12 +55,27 @@ const CONFIGURED_GROUPS = (process.env.WA_GROUPS || "")
   .map((g) => g.trim())
   .filter(Boolean);
 
-// Tick overlap guard
+// Tick overlap guard — also exposed via /api/scraper/status for the frontend banner
 let isRunning = false;
+let _startedAt = null;
+
+export function isScraperRunning() {
+  return isRunning;
+}
+export function scraperStartedAt() {
+  return _startedAt;
+}
 
 // ── Main tick ─────────────────────────────────────────────────────────────────
 
 async function runScraperJob() {
+  if (isInSkipWindow()) {
+    console.log(
+      `[Scraper Cron] Skip window active (${SKIP_FROM}–${SKIP_TO} ${SKIP_TZ}) — pausing for ReadSend job`,
+    );
+    return;
+  }
+
   if (isRunning) {
     console.warn("[Scraper Cron] Previous tick still running — skipping");
     return;
@@ -44,14 +89,21 @@ async function runScraperJob() {
   }
 
   isRunning = true;
+  _startedAt = new Date().toISOString();
   const tickStart = Date.now();
   console.log(`[Scraper Cron] Tick started at ${new Date().toISOString()}`);
+
+  // Acquire the shared browser lock so the daily-status job cannot launch a
+  // second Playwright context while this tick is running.
+  await acquireBrowserLock("ScraperJob");
 
   let context;
 
   try {
-    // ── Launch shared persistent context (login once) ────────────────────
-    context = await launchMainSession();
+    // ── Reuse the persistent browser context (launched once at startup) ──
+    // getSharedContext() keeps Chrome open between ticks — the WA Web
+    // WebSocket stays connected, preventing session expiry overnight.
+    context = await getSharedContext();
 
     // ── Scrape groups sequentially — WA Web does not support multiple
     //    active tabs in the same browser profile (shows "open in another
@@ -83,12 +135,53 @@ async function runScraperJob() {
         if (page) await closeGroupPage(page);
       }
     }
+    // ── Drain outbound message queue ─────────────────────────────────────
+    // readAndSendJob queues messages here instead of launching its own Chrome.
+    // We send them now using the session that is already open.
+    if (queueSize() > 0) {
+      const pending = drainQueue();
+      console.log(
+        `[Scraper Cron] Draining send queue — ${pending.length} message(s)`,
+      );
+      for (const { groupName, text } of pending) {
+        let page;
+        try {
+          page = await openGroupPage(context);
+          await sendMessageToGroup(page, groupName, text);
+          console.log(`[Scraper Cron] ✓ Sent queued message to "${groupName}"`);
+        } catch (sendErr) {
+          console.error(
+            `[Scraper Cron] ✗ Failed to send queued message to "${groupName}": ${sendErr.message}`,
+          );
+        } finally {
+          if (page) await closeGroupPage(page).catch(() => {});
+        }
+      }
+    }
   } catch (err) {
     // Catches session-level failures (WA login lost, browser crash)
     console.error(`[Scraper Cron] Fatal tick error: ${err.message}`, err.stack);
+
+    // If the error indicates the browser process itself died or the WA session
+    // is gone, destroy the shared context so the next tick relaunches Chrome
+    // (and handles QR if the session expired).
+    const isFatal =
+      err.message?.includes("Target closed") ||
+      err.message?.includes("Protocol error") ||
+      err.message?.includes("Browser closed") ||
+      err.message?.includes("crashed") ||
+      err.message?.includes("Session closed");
+
+    if (isFatal) {
+      console.warn("[Scraper Cron] Destroying shared context — will relaunch on next tick");
+      await destroySharedContext().catch(() => {});
+    }
   } finally {
-    if (context) await closeSession(context).catch(() => {});
+    // DO NOT close the context — it stays alive so the WA Web session
+    // remains connected overnight and no QR re-scan is needed at 1 AM.
+    releaseBrowserLock("ScraperJob");
     isRunning = false;
+    _startedAt = null;
     console.log(`[Scraper Cron] Tick finished in ${Date.now() - tickStart}ms`);
   }
 }
@@ -97,9 +190,9 @@ async function runScraperJob() {
 
 async function scrapeAndSend(page, group_name) {
   try {
-    // Bootstrap dedup cursor from DB on first run for this group.
-    // initCursor fetches the latest message_time from the API; if nothing
-    // exists yet it falls back to epoch (new Date(0).toISOString()).
+    // Refresh the dedup cursor from DB before every scrape tick.
+    // Queries MAX(message_time) directly so the scraper never re-reads
+    // messages that are already persisted, even across process restarts.
     await initCursor(group_name);
 
     const cursorTs = getCursor(group_name);
@@ -219,4 +312,16 @@ export function startScraperJob() {
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// ── Exported helper for daily-status forced pre-collection scrape ─────────────
+//
+// Runs a single-group scrape+save without acquiring the browser lock.
+// The caller (dailyStatusJob) is responsible for holding the lock and for
+// passing an already-open Playwright page.
+//
+// @param {import('playwright').Page} page   open WA Web tab
+// @param {string} groupName                 exact WA group display name
+export async function doGroupScrape(page, groupName) {
+  return scrapeAndSend(page, groupName);
 }

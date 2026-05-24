@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch.js";
+import useScraperStatus from "../hooks/useScraperStatus.js";
 import { fetchGroups, runAIAction } from "../api/client.js";
 import { useInfiniteMessages } from "../hooks/useInfiniteMessages.js";
 import {
@@ -296,6 +297,10 @@ export default function AIActionsView() {
     reload: reloadMessages,
   } = useInfiniteMessages(selectedGroup, { order: "DESC" });
 
+  // scraperRunning is used for the scanning banner only (no auto-refresh on this page).
+  // "running" is already taken by the AI action state variable.
+  const { running: scraperRunning } = useScraperStatus({ onScanComplete: reloadMessages });
+
   // ── Selection helpers ────────────────────────────────────────────────────────
   const selectedCount = selectedIds.size;
   const allSelected =
@@ -456,6 +461,25 @@ export default function AIActionsView() {
           </>
         )}
       </div>
+
+      {/* ── Scanning banner ── */}
+      {scraperRunning && (
+        <div style={{
+          background: "rgba(96,165,250,0.1)",
+          border: "1px solid rgba(96,165,250,0.25)",
+          borderRadius: 8,
+          padding: "10px 14px",
+          marginBottom: 12,
+          fontSize: 13,
+          color: "var(--info)",
+          display: "flex",
+          alignItems: "center",
+          gap: 8,
+        }}>
+          <span style={{ width: 8, height: 8, borderRadius: "50%", background: "var(--info)", flexShrink: 0, animation: "pulse 1.5s ease-in-out infinite" }} />
+          Scanning WhatsApp — messages will reload automatically when the scan completes
+        </div>
+      )}
 
       {/* ── Empty state ── */}
       {!selectedGroup && (

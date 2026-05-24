@@ -8,6 +8,8 @@ import groupsRoutes from "./modules/summary/groups.routes.js";
 import aiRoutes from "./modules/ai/ai.routes.js";
 import authRoutes from "./modules/auth/auth.routes.js";
 import jiraRoutes from "./modules/jira/jira.routes.js";
+import scraperRoutes from "./modules/scraper/scraper.routes.js";
+import dailyStatusRoutes from "./modules/daily-status/daily-status.routes.js";
 import { authMiddleware } from "./middleware/auth.js";
 import { ApiError } from "./errors/ApiError.js";
 
@@ -64,6 +66,8 @@ app.use("/api/summaries", summaryRoutes);
 app.use("/api/groups", groupsRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/jira", jiraRoutes);
+app.use("/api/scraper", scraperRoutes);
+app.use("/api/daily-status", dailyStatusRoutes);
 
 // 404 handler
 app.use((_req, res) => {

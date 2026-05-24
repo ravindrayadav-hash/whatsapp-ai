@@ -290,3 +290,112 @@ VITE_API_TOKEN=your-strong-random-token
 ---
 
 *Generated 2026-04-14*
+
+---
+
+## DAILY STATUS FIX — 2026-05-24
+
+### Problem
+
+The daily status feature (reminder at 1:16 AM → read at 1:26 AM → summary at 1:31 AM) worked when tested manually via the trigger endpoint but silently failed every night at 1 AM. The symptom was `[WA] QR code detected` appearing in server logs with nobody to scan it, causing the queued reminder and summary messages to be dropped.
+
+**Root cause:** `scraperJob.js` opened and closed Chrome on every 5-minute tick. WhatsApp Web maintains login through a live WebSocket connection to WA's servers. Killing Chrome every 5 minutes repeatedly tore down that connection. Overnight, WA de-authenticated the session. When Chrome reopened at 1 AM to drain the send queue, it got a QR code screen — nobody was watching — the tick timed out after 100 seconds, and the queue was never drained.
+
+---
+
+### Fix 1 — `src/scraper/browser.manager.js` (NEW FILE)
+
+A singleton that keeps ONE Chrome browser context alive for the entire lifetime of the server process.
+
+**Key exports:**
+- `getSharedContext()` — returns the existing live context instantly, or launches a new one (with QR handling) if Chrome has never started or has crashed.
+- `destroySharedContext()` — force-closes the context on a fatal browser error so the next tick relaunches cleanly.
+- `hasLiveContext()` — utility to check if Chrome is currently open.
+
+With Chrome kept open 24/7, the WhatsApp Web WebSocket connection stays active. WA sees the browser as continuously present and does not expire the session overnight. The QR code is only shown once — on first server startup — and never again unless the user manually logs out on their phone.
+
+---
+
+### Fix 2 — `src/cron/scraperJob.js` (MODIFIED)
+
+| Before | After |
+|---|---|
+| `import { launchMainSession, openGroupPage, closeGroupPage, closeSession }` | `import { openGroupPage, closeGroupPage }` + `import { getSharedContext, destroySharedContext }` from browser.manager |
+| `context = await launchMainSession()` — opens Chrome fresh every tick | `context = await getSharedContext()` — reuses the single open Chrome |
+| `await closeSession(context)` in `finally` — closes Chrome after every tick | **Removed** — Chrome is never closed between ticks |
+| No fatal error detection | Added: if error message contains `"Target closed"`, `"Protocol error"`, `"Browser closed"`, `"crashed"`, or `"Session closed"` → calls `destroySharedContext()` so the next tick relaunches |
+
+---
+
+### Fix 3 — `src/scraper/whatsapp.selectors.js` (MODIFIED)
+
+```
+Before:  MAIN_APP: "#app .two"
+
+After:   MAIN_APP: '#app .two, #side, #pane-side, [data-testid="default-user"]'
+```
+
+`#app .two` is a WhatsApp Web CSS class that can change in any WA update. If it stopped matching, `waitForLogin()` would time out and treat a logged-in browser as if it were showing a QR code. The four fallback selectors cover all known WA Web builds from 2023 to 2026.
+
+---
+
+### Nightly Flow After Fix
+
+```
+Server start
+  └─ First scraper tick
+       └─ getSharedContext() → Chrome opens ONCE, WA session verified
+          (QR scan here only if session was expired — never again after this)
+
+Every 5 minutes (ticks at :00 :05 :10 :15 :20 :25 :30 :35...)
+  └─ getSharedContext() → returns existing open context in milliseconds
+       └─ Scrapes all WA groups → tabs opened and closed (Chrome stays open)
+       └─ Drains send queue → sends any queued messages
+
+1:16 AM — readAndSendJob Phase 1
+  └─ queueMessage("whatsapp ai", reminderText)
+
+~1:20 AM — Scraper tick
+  └─ Queue has 1 item → opens tab → sends reminder ✓ → closes tab
+
+1:26 AM — readAndSendJob Phase 2
+  └─ Queries DB (last 15 hours of messages) → stores summary in memory
+
+1:31 AM — readAndSendJob Phase 3
+  └─ queueMessage("whatsapp ai", summaryText)
+
+~1:35 AM — Scraper tick
+  └─ Queue has 1 item → opens tab → sends summary ✓ → closes tab
+```
+
+---
+
+### How to Deploy
+
+1. Stop the server (`Ctrl+C`)
+2. Restart: `node server.js`
+3. Look for this log line within the first 5 minutes:
+   ```
+   [BrowserManager] ✓ Browser context ready — will be reused across ticks
+   ```
+4. If the session has expired you will see a QR prompt — scan it once. It will not appear again.
+5. Confirm with the trigger endpoint:
+   ```bash
+   curl -X POST http://localhost:3002/api/daily-status/trigger-send \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer aripra-internal-scraper-token-2024" \
+     -d '{"message": "test — persistent browser active"}'
+   ```
+   Watch logs for `[Scraper Cron] Draining send queue` and `✓ Sent queued message`.
+
+---
+
+### Files Changed Summary (this fix)
+
+| File | Change |
+|---|---|
+| `src/scraper/browser.manager.js` | **New** — persistent browser singleton |
+| `src/cron/scraperJob.js` | Modified — use getSharedContext, removed closeSession per tick |
+| `src/scraper/whatsapp.selectors.js` | Modified — hardened MAIN_APP selector with 4 fallbacks |
+
+*Generated 2026-05-24*

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch.js";
 import useAutoRefresh from "../hooks/useAutoRefresh.js";
+import useScraperStatus from "../hooks/useScraperStatus.js";
 import { fetchGroups, fetchAIHistory, runAIAction } from "../api/client.js";
 import {
   SummarizeResult,
@@ -752,13 +753,20 @@ export default function AIHistoryView() {
   // refreshTick is incremented by auto-refresh; adding it to filterKey causes
   // the existing reset effect to run, clearing logs and resetting to page 1.
   const [refreshTick, setRefreshTick] = useState(0);
-  useAutoRefresh(
-    useCallback(() => setRefreshTick((t) => t + 1), []),
-    30_000,
-    true,
-  );
+  const triggerRefresh = useCallback(() => setRefreshTick((t) => t + 1), []);
+  // Pause auto-refresh while scraper is running; auto-reload once scan completes.
+  const { running: scraperRunning } = useScraperStatus({
+    onScanComplete: triggerRefresh,
+  });
+  useAutoRefresh(triggerRefresh, 30_000, !scraperRunning);
 
-  const filterKey = [filterGroup, filterAction, filterFrom, filterTo, refreshTick].join("|");
+  const filterKey = [
+    filterGroup,
+    filterAction,
+    filterFrom,
+    filterTo,
+    refreshTick,
+  ].join("|");
 
   useEffect(() => {
     setPage(1);
@@ -883,6 +891,37 @@ export default function AIHistoryView() {
           </span>
         )}
       </div>
+
+      {/* ── Scanning banner ── */}
+      {scraperRunning && (
+        <div
+          style={{
+            background: "rgba(96,165,250,0.1)",
+            border: "1px solid rgba(96,165,250,0.25)",
+            borderRadius: 8,
+            padding: "10px 14px",
+            marginBottom: 12,
+            fontSize: 13,
+            color: "var(--info)",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <span
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              background: "var(--info)",
+              flexShrink: 0,
+              animation: "pulse 1.5s ease-in-out infinite",
+            }}
+          />
+          Scanning WhatsApp — new AI history entries will appear automatically
+          when the scan completes
+        </div>
+      )}
 
       {/* ── Error ── */}
       {error && <div className="error-banner">{error}</div>}

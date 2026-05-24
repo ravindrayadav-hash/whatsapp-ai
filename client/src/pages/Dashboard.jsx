@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch.js";
 import useAutoRefresh from "../hooks/useAutoRefresh.js";
+import useScraperStatus from "../hooks/useScraperStatus.js";
 import { fetchGroups, fetchSummaries } from "../api/client.js";
 
 function timeAgo(iso) {
@@ -58,8 +59,12 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const { data, loading, error, refetch } = useFetch(fetchGroups);
 
-  // Keep the group list current while the scraper adds new groups in the background
-  useAutoRefresh(refetch, 30_000, true);
+  // Pause auto-refresh while scraper is running (Playwright blocks the event loop).
+  // When scan completes, onScanComplete fires an immediate refetch.
+  const { running: scraperRunning } = useScraperStatus({
+    onScanComplete: refetch,
+  });
+  useAutoRefresh(refetch, 30_000, !scraperRunning);
 
   const groups = data?.data ?? [];
 
@@ -71,6 +76,36 @@ export default function Dashboard() {
         <h1>Dashboard</h1>
         <p>Monitor all WhatsApp group activity and AI summaries</p>
       </div>
+
+      {scraperRunning && (
+        <div
+          style={{
+            background: "rgba(96,165,250,0.1)",
+            border: "1px solid rgba(96,165,250,0.25)",
+            borderRadius: 8,
+            padding: "10px 14px",
+            marginBottom: 16,
+            fontSize: 13,
+            color: "var(--info)",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+          }}
+        >
+          <span
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              background: "var(--info)",
+              flexShrink: 0,
+              animation: "pulse 1.5s ease-in-out infinite",
+            }}
+          />
+          Scanning WhatsApp — groups and messages will refresh automatically
+          when the scan completes
+        </div>
+      )}
 
       {error && (
         <div className="error-banner">Failed to load groups: {error}</div>

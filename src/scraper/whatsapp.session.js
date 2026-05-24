@@ -27,6 +27,9 @@ export async function launchMainSession() {
     ],
     viewport: { width: 1280, height: 900 },
     locale: "en-US",
+    // Grant clipboard access so the sender can paste messages via Ctrl+V.
+    // Without this, navigator.clipboard.writeText() is blocked by the browser.
+    permissions: ["clipboard-read", "clipboard-write"],
   });
 
   // Use the first page to verify login / handle QR
