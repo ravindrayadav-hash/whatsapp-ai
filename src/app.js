@@ -33,7 +33,7 @@ app.get("/health", (_req, res) => res.json({ status: "ok" }));
 // so 200 was too low and caused 429 errors on normal page loads.
 const globalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 20,
+  max: 1000,
   standardHeaders: true,
   legacyHeaders: false,
   message: { success: false, message: "Too many requests — please slow down" },
