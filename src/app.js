@@ -28,11 +28,12 @@ app.use("/uploads", express.static(join(__dirname, "..", "uploads")));
 
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
-// Global rate limit — 200 requests per 15 minutes per IP.
-// Prevents bulk scraping of message data or brute-forcing the token.
+// Global rate limit — 1000 requests per 15 minutes per IP.
+// Single-user internal tool: status polling + group cards each make API calls,
+// so 200 was too low and caused 429 errors on normal page loads.
 const globalLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
-  max: 200,
+  max: 20,
   standardHeaders: true,
   legacyHeaders: false,
   message: { success: false, message: "Too many requests — please slow down" },

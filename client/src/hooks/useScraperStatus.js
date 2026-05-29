@@ -33,7 +33,8 @@ export default function useScraperStatus({ onScanComplete } = {}) {
 
   useEffect(() => {
     fetchStatus(); // immediate check on mount
-    const id = setInterval(fetchStatus, 10_000);
+    // 30s is precise enough to detect cron completion without burning rate-limit quota
+    const id = setInterval(fetchStatus, 30_000);
     return () => clearInterval(id);
   }, [fetchStatus]);
 

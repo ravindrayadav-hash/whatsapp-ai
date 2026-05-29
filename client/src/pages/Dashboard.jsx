@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch.js";
-import useAutoRefresh from "../hooks/useAutoRefresh.js";
 import useScraperStatus from "../hooks/useScraperStatus.js";
 import { fetchGroups, fetchSummaries } from "../api/client.js";
 
@@ -59,12 +58,11 @@ export default function Dashboard() {
   const navigate = useNavigate();
   const { data, loading, error, refetch } = useFetch(fetchGroups);
 
-  // Pause auto-refresh while scraper is running (Playwright blocks the event loop).
-  // When scan completes, onScanComplete fires an immediate refetch.
+  // Load groups from DB on mount. Only refresh when the scraper finishes a scan —
+  // no constant polling needed since the DB already has the latest data.
   const { running: scraperRunning } = useScraperStatus({
     onScanComplete: refetch,
   });
-  useAutoRefresh(refetch, 30_000, !scraperRunning);
 
   const groups = data?.data ?? [];
 

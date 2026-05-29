@@ -319,11 +319,10 @@ export default function MessagesView() {
       order: selectedOrder,
     });
 
-  // Pause auto-refresh while scraper is running; auto-reload once scan completes.
+  // Reload only when the scraper finishes a scan — no constant background polling.
   const { running: scraperRunning } = useScraperStatus({
     onScanComplete: reload,
   });
-  useAutoRefresh(reload, 30_000, !!selectedGroup && !scraperRunning);
 
   // ── AI panel ───────────────────────────────────────────────────────────────
   const panel = useAIPanel(messages, selectedGroup);

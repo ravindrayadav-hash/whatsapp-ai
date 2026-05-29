@@ -754,11 +754,10 @@ export default function AIHistoryView() {
   // the existing reset effect to run, clearing logs and resetting to page 1.
   const [refreshTick, setRefreshTick] = useState(0);
   const triggerRefresh = useCallback(() => setRefreshTick((t) => t + 1), []);
-  // Pause auto-refresh while scraper is running; auto-reload once scan completes.
+  // Reload only when the scraper finishes a scan — no constant background polling.
   const { running: scraperRunning } = useScraperStatus({
     onScanComplete: triggerRefresh,
   });
-  useAutoRefresh(triggerRefresh, 30_000, !scraperRunning);
 
   const filterKey = [
     filterGroup,
